@@ -196,15 +196,12 @@
 
 <script>
 
-const CAPITAL_INICIAL = 10000;
-const EFECTIVO = 2000;
 
-const cartera = [
-  { ticker: "JPM", acciones: 5.6635, costoInicial: 2000 },
-  { ticker: "JNJ", acciones: 7.5926, costoInicial: 2000 },
-  { ticker: "AAPL", acciones: 6.0051, costoInicial: 2000 },
-  { ticker: "XOM", acciones: 12.7445, costoInicial: 2000 }
-];
+let CAPITAL_INICIAL = 10000;
+let EFECTIVO = 0;
+let MAX_POSICIONES = 5;
+let cartera = [];
+let ordenesPendientes = [];
 
 const formatoDinero = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -212,9 +209,7 @@ const formatoDinero = new Intl.NumberFormat("en-US", {
 });
 
 function formatearFecha(fechaISO) {
-  if (!fechaISO) {
-    return new Date().toLocaleString("es-MX");
-  }
+  if (!fechaISO) return "Sin fecha";
 
   const fecha = new Date(fechaISO);
 
@@ -225,53 +220,86 @@ function formatearFecha(fechaISO) {
   return fecha.toLocaleString("es-MX");
 }
 
-async function cargarCotizaciones() {
+async function iniciarApp() {
 
-  const estado = document.getElementById("estado");
+  const estadoVisual = document.getElementById("estado");
 
-  estado.textContent = "Consultando cotizaciones...";
+  estadoVisual.textContent =
+    "Cargando cuenta PAPER y mercado...";
 
   try {
 
-    /*
-      El parámetro evita que el navegador conserve una copia vieja
-      de cotizaciones.json.
-    */
-    const respuesta = await fetch(
-      "cotizaciones.json?t=" + Date.now(),
-      { cache: "no-store" }
+    const [respuestaEstado, respuestaCotizaciones] =
+      await Promise.all([
+
+        fetch(
+          "estado_paper.json?t=" + Date.now(),
+          { cache: "no-store" }
+        ),
+
+        fetch(
+          "cotizaciones.json?t=" + Date.now(),
+          { cache: "no-store" }
+        )
+
+      ]);
+
+    if (!respuestaEstado.ok) {
+      throw new Error(
+        "No se pudo cargar estado_paper.json"
+      );
+    }
+
+    if (!respuestaCotizaciones.ok) {
+      throw new Error(
+        "No se pudo cargar cotizaciones.json"
+      );
+    }
+
+    const estadoPaper =
+      await respuestaEstado.json();
+
+    const datosMercado =
+      await respuestaCotizaciones.json();
+
+    CAPITAL_INICIAL =
+      Number(estadoPaper.capital_inicial);
+
+    EFECTIVO =
+      Number(estadoPaper.efectivo);
+
+    MAX_POSICIONES =
+      Number(estadoPaper.max_posiciones);
+
+    cartera =
+      estadoPaper.posiciones || [];
+
+    ordenesPendientes =
+      estadoPaper.ordenes_pendientes || [];
+
+    pintarCartera(
+      estadoPaper,
+      datosMercado
     );
-
-    if (!respuesta.ok) {
-      throw new Error(
-        "No se pudo cargar cotizaciones.json. HTTP " +
-        respuesta.status
-      );
-    }
-
-    const datos = await respuesta.json();
-
-    if (!datos.cotizaciones) {
-      throw new Error(
-        "El archivo cotizaciones.json no contiene cotizaciones."
-      );
-    }
-
-    pintarCartera(datos);
 
   } catch (error) {
 
     console.error(error);
 
-    estado.textContent =
-      "No fue posible cargar las cotizaciones del mercado.";
+    estadoVisual.textContent =
+      "ERROR AL CARGAR LA CUENTA PAPER";
 
-    document.getElementById("actualizacion").textContent =
-      "Error: " + error.message;
+    document.getElementById(
+      "actualizacion"
+    ).textContent = error.message;
   }
 }
 
-function pintarCartera(datos) {
+
+function pintarCartera(
+  estadoPaper,
+  datosMercado
+) {
 
   const contenedor =
     document.getElementById("posiciones");
@@ -282,32 +310,46 @@ function pintarCartera(datos) {
 
   cartera.forEach(posicion => {
 
+    const ticker =
+      posicion.activo;
+
     const cotizacion =
-      datos.cotizaciones[posicion.ticker];
+      datosMercado.cotizaciones[ticker];
 
     if (
       !cotizacion ||
       typeof cotizacion.precio !== "number"
     ) {
       throw new Error(
-        "No existe un precio válido para " +
-        posicion.ticker
+        "Precio no disponible para " + ticker
       );
     }
 
-    const precioActual = cotizacion.precio;
+    const precioActual =
+      Number(cotizacion.precio);
+
+    const acciones =
+      Number(posicion.acciones);
+
+    const precioEntrada =
+      Number(posicion.precio_entrada);
+
+    const costoInicial =
+      Number(posicion.costo_inicial);
 
     const valorActual =
-      posicion.acciones * precioActual;
+      acciones * precioActual;
+
+    const pnl =
+      valorActual - costoInicial;
+
+    const rendimiento =
+      (pnl / costoInicial) * 100;
 
     totalInvertido += valorActual;
 
-    const rendimiento =
-      ((valorActual - posicion.costoInicial) /
-      posicion.costoInicial) * 100;
-
     const clase =
-      rendimiento >= 0
+      pnl >= 0
         ? "positivo"
         : "negativo";
 
@@ -321,17 +363,25 @@ function pintarCartera(datos) {
 
     tarjeta.innerHTML = `
       <div>
+
         <div class="ticker">
-          ${posicion.ticker}
+          ${ticker}
         </div>
 
         <div class="detalle">
-          ${posicion.acciones.toFixed(4)} acciones
+          ${acciones.toFixed(4)} acciones
         </div>
 
         <div class="detalle">
-          Precio: ${formatoDinero.format(precioActual)}
+          Entrada:
+          ${formatoDinero.format(precioEntrada)}
         </div>
+
+        <div class="detalle">
+          Actual:
+          ${formatoDinero.format(precioActual)}
+        </div>
+
       </div>
 
       <div class="derecha">
@@ -344,6 +394,11 @@ function pintarCartera(datos) {
           ${signo}${rendimiento.toFixed(2)}%
         </div>
 
+        <div class="${clase}">
+          ${pnl >= 0 ? "+" : ""}
+          ${formatoDinero.format(pnl)}
+        </div>
+
       </div>
     `;
 
@@ -351,34 +406,48 @@ function pintarCartera(datos) {
 
   });
 
+
   const capitalActual =
     EFECTIVO + totalInvertido;
 
-  const rendimientoTotal =
-    ((capitalActual - CAPITAL_INICIAL) /
-    CAPITAL_INICIAL) * 100;
+  const pnlTotal =
+    capitalActual - CAPITAL_INICIAL;
 
-  document.getElementById("capital").textContent =
+  const rendimientoTotal =
+    (pnlTotal / CAPITAL_INICIAL) * 100;
+
+
+  document.getElementById(
+    "capital"
+  ).textContent =
     formatoDinero.format(capitalActual);
 
-  document.getElementById("efectivo").textContent =
+
+  document.getElementById(
+    "efectivo"
+  ).textContent =
     formatoDinero.format(EFECTIVO);
 
-  document.getElementById("invertido").textContent =
+
+  document.getElementById(
+    "invertido"
+  ).textContent =
     formatoDinero.format(totalInvertido);
+
 
   document.getElementById(
     "numeroPosiciones"
-  ).textContent = cartera.length;
+  ).textContent =
+    cartera.length;
+
 
   const elementoRendimiento =
-    document.getElementById("rendimiento");
-
-  const signoTotal =
-    rendimientoTotal > 0 ? "+" : "";
+    document.getElementById(
+      "rendimiento"
+    );
 
   elementoRendimiento.textContent =
-    signoTotal +
+    (rendimientoTotal > 0 ? "+" : "") +
     rendimientoTotal.toFixed(2) +
     "%";
 
@@ -387,18 +456,77 @@ function pintarCartera(datos) {
       ? "positivo"
       : "negativo";
 
-  document.getElementById("estado").textContent =
-    "Cotizaciones cargadas correctamente";
+
+  mostrarOrdenes();
+
 
   document.getElementById(
     "actualizacion"
   ).textContent =
-    "Cotizaciones actualizadas: " +
-    formatearFecha(datos.actualizado);
+    "Mercado actualizado: " +
+    formatearFecha(
+      datosMercado.actualizado
+    );
 }
 
-cargarCotizaciones();
 
+function mostrarOrdenes() {
+
+  const estadoVisual =
+    document.getElementById("estado");
+
+  if (
+    !ordenesPendientes ||
+    ordenesPendientes.length === 0
+  ) {
+
+    estadoVisual.innerHTML = `
+      <strong>PRÓXIMA APERTURA</strong>
+      <br><br>
+      Sin órdenes pendientes
+      <br><br>
+      Posiciones:
+      ${cartera.length} / ${MAX_POSICIONES}
+    `;
+
+    return;
+  }
+
+
+  let html = `
+    <strong>ÓRDENES PRÓXIMA APERTURA</strong>
+    <br><br>
+  `;
+
+
+  ordenesPendientes.forEach(orden => {
+
+    html += `
+      <strong>
+        ${orden.accion}
+        ${orden.activo}
+      </strong>
+      <br>
+    `;
+
+    if (orden.motivo) {
+      html += `
+        <span>
+          ${orden.motivo}
+        </span>
+        <br>
+      `;
+    }
+
+    html += "<br>";
+  });
+
+
+  estadoVisual.innerHTML = html;
+}
+
+
+iniciarApp();
 </script>
 
 </body>
