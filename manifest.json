@@ -1,0 +1,12 @@
+{
+  "name": "Estrategia 2",
+  "short_name": "Estrategia 2",
+  "description": "Seguimiento y paper trading - Estrategia 2",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#071426",
+  "theme_color": "#071426",
+  "orientation": "portrait",
+  "lang": "es-MX"
+}
