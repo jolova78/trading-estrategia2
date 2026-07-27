@@ -179,7 +179,7 @@
 
   <div id="posiciones"></div>
 
-  <h2>Próxima apertura</h2>
+  <h2>Mercado</h2>
 
   <div class="estado" id="estado">
     Consultando precios...
@@ -198,15 +198,11 @@
 const CAPITAL_INICIAL = 10000;
 const EFECTIVO = 2000;
 
-/*
-  Cantidades de acciones de nuestra cartera PAPER.
-  Se mantienen las cantidades de la versión original.
-*/
 const cartera = [
-  { ticker: "JPM", acciones: 5.6635, referencia: 2000 },
-  { ticker: "JNJ", acciones: 7.5926, referencia: 2000 },
-  { ticker: "AAPL", acciones: 6.0051, referencia: 2000 },
-  { ticker: "XOM", acciones: 12.7445, referencia: 2000 }
+  { ticker: "JPM", acciones: 5.6635, costoInicial: 2000 },
+  { ticker: "JNJ", acciones: 7.5926, costoInicial: 2000 },
+  { ticker: "AAPL", acciones: 6.0051, costoInicial: 2000 },
+  { ticker: "XOM", acciones: 12.7445, costoInicial: 2000 }
 ];
 
 const formatoDinero = new Intl.NumberFormat("en-US", {
@@ -214,9 +210,70 @@ const formatoDinero = new Intl.NumberFormat("en-US", {
   currency: "USD"
 });
 
-function pintarCartera() {
+function formatearFecha(fechaISO) {
+  if (!fechaISO) {
+    return new Date().toLocaleString("es-MX");
+  }
 
-  const contenedor = document.getElementById("posiciones");
+  const fecha = new Date(fechaISO);
+
+  if (Number.isNaN(fecha.getTime())) {
+    return fechaISO;
+  }
+
+  return fecha.toLocaleString("es-MX");
+}
+
+async function cargarCotizaciones() {
+
+  const estado = document.getElementById("estado");
+
+  estado.textContent = "Consultando cotizaciones...";
+
+  try {
+
+    /*
+      El parámetro evita que el navegador conserve una copia vieja
+      de cotizaciones.json.
+    */
+    const respuesta = await fetch(
+      "cotizaciones.json?t=" + Date.now(),
+      { cache: "no-store" }
+    );
+
+    if (!respuesta.ok) {
+      throw new Error(
+        "No se pudo cargar cotizaciones.json. HTTP " +
+        respuesta.status
+      );
+    }
+
+    const datos = await respuesta.json();
+
+    if (!datos.cotizaciones) {
+      throw new Error(
+        "El archivo cotizaciones.json no contiene cotizaciones."
+      );
+    }
+
+    pintarCartera(datos);
+
+  } catch (error) {
+
+    console.error(error);
+
+    estado.textContent =
+      "No fue posible cargar las cotizaciones del mercado.";
+
+    document.getElementById("actualizacion").textContent =
+      "Error: " + error.message;
+  }
+}
+
+function pintarCartera(datos) {
+
+  const contenedor =
+    document.getElementById("posiciones");
 
   contenedor.innerHTML = "";
 
@@ -224,33 +281,55 @@ function pintarCartera() {
 
   cartera.forEach(posicion => {
 
-    /*
-      Por ahora usamos el valor de referencia.
-      En el siguiente módulo sustituiremos este valor
-      por la cotización recibida del proveedor de mercado.
-    */
+    const cotizacion =
+      datos.cotizaciones[posicion.ticker];
 
-    const valorActual = posicion.referencia;
+    if (
+      !cotizacion ||
+      typeof cotizacion.precio !== "number"
+    ) {
+      throw new Error(
+        "No existe un precio válido para " +
+        posicion.ticker
+      );
+    }
+
+    const precioActual = cotizacion.precio;
+
+    const valorActual =
+      posicion.acciones * precioActual;
 
     totalInvertido += valorActual;
 
     const rendimiento =
-      ((valorActual - posicion.referencia) /
-      posicion.referencia) * 100;
+      ((valorActual - posicion.costoInicial) /
+      posicion.costoInicial) * 100;
 
     const clase =
-      rendimiento >= 0 ? "positivo" : "negativo";
+      rendimiento >= 0
+        ? "positivo"
+        : "negativo";
 
-    const tarjeta = document.createElement("div");
+    const signo =
+      rendimiento > 0 ? "+" : "";
+
+    const tarjeta =
+      document.createElement("div");
 
     tarjeta.className = "posicion";
 
     tarjeta.innerHTML = `
       <div>
-        <div class="ticker">${posicion.ticker}</div>
+        <div class="ticker">
+          ${posicion.ticker}
+        </div>
 
         <div class="detalle">
           ${posicion.acciones.toFixed(4)} acciones
+        </div>
+
+        <div class="detalle">
+          Precio: ${formatoDinero.format(precioActual)}
         </div>
       </div>
 
@@ -261,7 +340,7 @@ function pintarCartera() {
         </div>
 
         <div class="${clase}">
-          ${rendimiento.toFixed(2)}%
+          ${signo}${rendimiento.toFixed(2)}%
         </div>
 
       </div>
@@ -271,7 +350,8 @@ function pintarCartera() {
 
   });
 
-  const capitalActual = EFECTIVO + totalInvertido;
+  const capitalActual =
+    EFECTIVO + totalInvertido;
 
   const rendimientoTotal =
     ((capitalActual - CAPITAL_INICIAL) /
@@ -286,28 +366,37 @@ function pintarCartera() {
   document.getElementById("invertido").textContent =
     formatoDinero.format(totalInvertido);
 
-  document.getElementById("numeroPosiciones").textContent =
-    cartera.length;
+  document.getElementById(
+    "numeroPosiciones"
+  ).textContent = cartera.length;
 
   const elementoRendimiento =
     document.getElementById("rendimiento");
 
+  const signoTotal =
+    rendimientoTotal > 0 ? "+" : "";
+
   elementoRendimiento.textContent =
-    rendimientoTotal.toFixed(2) + "%";
+    signoTotal +
+    rendimientoTotal.toFixed(2) +
+    "%";
 
   elementoRendimiento.className =
-    rendimientoTotal >= 0 ? "positivo" : "negativo";
+    rendimientoTotal >= 0
+      ? "positivo"
+      : "negativo";
 
   document.getElementById("estado").textContent =
-    "Cartera PAPER cargada correctamente";
+    "Cotizaciones cargadas correctamente";
 
-  document.getElementById("actualizacion").textContent =
-    "Última actualización: " +
-    new Date().toLocaleString("es-MX");
-
+  document.getElementById(
+    "actualizacion"
+  ).textContent =
+    "Cotizaciones actualizadas: " +
+    formatearFecha(datos.actualizado);
 }
 
-pintarCartera();
+cargarCotizaciones();
 
 </script>
 
