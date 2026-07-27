@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "modo": "PAPER",
+  "capital_inicial": 10000.0,
+  "efectivo": 2000.0,
+  "max_posiciones": 5,
+  "fecha_inicio": "2026-07-24",
+  "posiciones": [
+    {
+      "activo": "JPM",
+      "precio_entrada": 353.14,
+      "acciones": 5.6635,
+      "costo_inicial": 2000.0
+    },
+    {
+      "activo": "JNJ",
+      "precio_entrada": 263.415,
+      "acciones": 7.5926,
+      "costo_inicial": 2000.0
+    },
+    {
+      "activo": "AAPL",
+      "precio_entrada": 333.05,
+      "acciones": 6.0051,
+      "costo_inicial": 2000.0
+    },
+    {
+      "activo": "XOM",
+      "precio_entrada": 156.93,
+      "acciones": 12.7445,
+      "costo_inicial": 2000.0
+    }
+  ],
+  "ordenes_pendientes": [],
+  "historial": []
+}
