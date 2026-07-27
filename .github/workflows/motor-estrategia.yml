@@ -1,8 +1,6 @@
 name: Motor Estrategia 2
 
 on:
-  
-on:
   workflow_dispatch:
   schedule:
     - cron: "15 21 * * 1-5"
