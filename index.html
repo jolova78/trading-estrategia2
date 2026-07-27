@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+
+  <title>Estrategia 2</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #07101f;
+      color: white;
+    }
+
+    .app {
+      max-width: 600px;
+      margin: auto;
+      padding: 22px 18px 40px;
+    }
+
+    .header {
+      margin-bottom: 24px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .paper {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: #17365d;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .capital {
+      background: #111d30;
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 16px;
+    }
+
+    .label {
+      color: #9aabc3;
+      font-size: 14px;
+    }
+
+    .capital-total {
+      font-size: 38px;
+      font-weight: bold;
+      margin-top: 6px;
+    }
+
+    .rendimiento {
+      margin-top: 8px;
+      font-size: 18px;
+      color: #55d98b;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: #111d30;
+      border-radius: 16px;
+      padding: 17px;
+    }
+
+    .valor {
+      font-size: 21px;
+      font-weight: bold;
+      margin-top: 7px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    .posicion {
+      background: #111d30;
+      border-radius: 14px;
+      padding: 15px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ticker {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .detalle {
+      color: #9aabc3;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .positivo {
+      color: #55d98b;
+    }
+
+    .negativo {
+      color: #ff6b6b;
+    }
+
+    .ordenes {
+      background: #111d30;
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .sin-ordenes {
+      color: #9aabc3;
+    }
+
+    .footer {
+      text-align: center;
+      color: #687b96;
+      font-size: 12px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="header">
+    <h1>Estrategia 2</h1>
+    <div class="paper">PAPER TRADING</div>
+  </div>
+
+  <div class="capital">
+
+    <div class="label">
+      Capital actual
+    </div>
+
+    <div class="capital-total">
+      $10,000.00
+    </div>
+
+    <div class="rendimiento">
+      0.00%
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="label">Efectivo</div>
+      <div class="valor">$2,000.00</div>
+    </div>
+
+    <div class="card">
+      <div class="label">Invertido</div>
+      <div class="valor">$8,000.00</div>
+    </div>
+
+  </div>
+
+  <h2>Posiciones · 4 / 5</h2>
+
+  <div class="posicion">
+    <div>
+      <div class="ticker">JPM</div>
+      <div class="detalle">5.6635 acciones</div>
+    </div>
+
+    <div>
+      <strong>$2,000.00</strong>
+      <div class="detalle positivo">0.00%</div>
+    </div>
+  </div>
+
+  <div class="posicion">
+    <div>
+      <div class="ticker">JNJ</div>
+      <div class="detalle">7.5926 acciones</div>
+    </div>
+
+    <div>
+      <strong>$2,000.00</strong>
+      <div class="detalle positivo">0.00%</div>
+    </div>
+  </div>
+
+  <div class="posicion">
+    <div>
+      <div class="ticker">AAPL</div>
+      <div class="detalle">6.0051 acciones</div>
+    </div>
+
+    <div>
+      <strong>$2,000.00</strong>
+      <div class="detalle positivo">0.00%</div>
+    </div>
+  </div>
+
+  <div class="posicion">
+    <div>
+      <div class="ticker">XOM</div>
+      <div class="detalle">12.7445 acciones</div>
+    </div>
+
+    <div>
+      <strong>$2,000.00</strong>
+      <div class="detalle positivo">0.00%</div>
+    </div>
+  </div>
+
+  <h2>Próxima apertura</h2>
+
+  <div class="ordenes">
+    <div class="sin-ordenes">
+      No hay órdenes pendientes
+    </div>
+  </div>
+
+  <div class="footer">
+    Estrategia 2 · Cuenta PAPER
+  </div>
+
+</div>
+
+</body>
+</html>
