@@ -1,0 +1,67 @@
+name: Actualizar cotizaciones
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 13-21 * * 1-5"
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Consultar Finnhub
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import urllib.request
+          from datetime import datetime, timezone
+
+          api_key = os.environ["FINNHUB_API_KEY"]
+          simbolos = ["JPM", "JNJ", "AAPL", "XOM"]
+
+          datos = {
+              "actualizado": datetime.now(timezone.utc).isoformat(),
+              "cotizaciones": {}
+          }
+
+          for simbolo in simbolos:
+              url = (
+                  "https://finnhub.io/api/v1/quote"
+                  f"?symbol={simbolo}&token={api_key}"
+              )
+
+              with urllib.request.urlopen(url, timeout=20) as respuesta:
+                  quote = json.load(respuesta)
+
+              datos["cotizaciones"][simbolo] = {
+                  "precio": quote.get("c"),
+                  "cambio": quote.get("d"),
+                  "porcentaje": quote.get("dp"),
+                  "apertura": quote.get("o"),
+                  "maximo": quote.get("h"),
+                  "minimo": quote.get("l"),
+                  "cierre_anterior": quote.get("pc")
+              }
+
+          with open("cotizaciones.json", "w", encoding="utf-8") as archivo:
+              json.dump(datos, archivo, ensure_ascii=False, indent=2)
+          PY
+
+      - name: Guardar cotizaciones
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cotizaciones.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Actualizar cotizaciones"
+          git push
