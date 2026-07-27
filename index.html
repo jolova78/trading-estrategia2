@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b1220">
-
+  <meta name="theme-color" content="#071426">
   <title>Estrategia 2</title>
 
   <style>
@@ -14,235 +13,303 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #07101f;
-      color: white;
+      background: #071426;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    .app {
-      max-width: 600px;
+    .contenedor {
+      max-width: 720px;
       margin: auto;
-      padding: 22px 18px 40px;
+      padding: 32px;
     }
 
-    .header {
-      margin-bottom: 24px;
-    }
-
-    .header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-
-    .paper {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 6px 12px;
-      border-radius: 20px;
-      background: #17365d;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .capital {
-      background: #111d30;
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 16px;
-    }
-
-    .label {
-      color: #9aabc3;
-      font-size: 14px;
-    }
-
-    .capital-total {
+    h1 {
       font-size: 38px;
-      font-weight: bold;
-      margin-top: 6px;
-    }
-
-    .rendimiento {
-      margin-top: 8px;
-      font-size: 18px;
-      color: #55d98b;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 25px;
-    }
-
-    .card {
-      background: #111d30;
-      border-radius: 16px;
-      padding: 17px;
-    }
-
-    .valor {
-      font-size: 21px;
-      font-weight: bold;
-      margin-top: 7px;
+      margin: 0 0 18px;
     }
 
     h2 {
+      margin-top: 55px;
+      font-size: 28px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #164a80;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 35px;
+    }
+
+    .tarjeta {
+      background: #10233b;
+      border-radius: 28px;
+      padding: 32px;
+      margin-bottom: 25px;
+    }
+
+    .capital {
+      font-size: 48px;
+      margin: 15px 0;
+    }
+
+    .detalle {
+      color: #91a0b7;
       font-size: 18px;
-      margin-top: 28px;
-      margin-bottom: 12px;
+    }
+
+    .positivo {
+      color: #45d17a;
+    }
+
+    .negativo {
+      color: #ff6262;
+    }
+
+    .resumen {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .resumen .tarjeta {
+      padding: 28px;
+    }
+
+    .valor {
+      font-size: 30px;
+      margin-top: 12px;
     }
 
     .posicion {
-      background: #111d30;
-      border-radius: 14px;
-      padding: 15px;
-      margin-bottom: 10px;
+      background: #10233b;
+      border-radius: 25px;
+      padding: 25px 28px;
+      margin-bottom: 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .ticker {
-      font-size: 18px;
+      font-size: 25px;
       font-weight: bold;
+      margin-bottom: 8px;
     }
 
-    .detalle {
-      color: #9aabc3;
-      font-size: 13px;
-      margin-top: 4px;
+    .derecha {
+      text-align: right;
     }
 
-    .positivo {
-      color: #55d98b;
+    .estado {
+      background: #10233b;
+      border-radius: 20px;
+      padding: 25px;
+      color: #91a0b7;
     }
 
-    .negativo {
-      color: #ff6b6b;
-    }
-
-    .ordenes {
-      background: #111d30;
-      border-radius: 16px;
-      padding: 18px;
-    }
-
-    .sin-ordenes {
-      color: #9aabc3;
-    }
-
-    .footer {
+    .actualizacion {
+      color: #91a0b7;
+      font-size: 14px;
+      margin-top: 20px;
       text-align: center;
-      color: #687b96;
-      font-size: 12px;
-      margin-top: 30px;
+    }
+
+    footer {
+      text-align: center;
+      color: #65748c;
+      margin: 55px 0 20px;
+    }
+
+    @media (max-width: 520px) {
+      .contenedor {
+        padding: 24px;
+      }
+
+      .capital {
+        font-size: 42px;
+      }
+
+      .resumen {
+        gap: 14px;
+      }
+
+      .resumen .tarjeta {
+        padding: 22px;
+      }
+
+      .valor {
+        font-size: 25px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<div class="app">
+<div class="contenedor">
 
-  <div class="header">
-    <h1>Estrategia 2</h1>
-    <div class="paper">PAPER TRADING</div>
+  <h1>Estrategia 2</h1>
+
+  <div class="badge">PAPER TRADING</div>
+
+  <div class="tarjeta">
+    <div class="detalle">Capital actual</div>
+    <div class="capital" id="capital">$10,000.00</div>
+    <div id="rendimiento" class="positivo">0.00%</div>
   </div>
 
-  <div class="capital">
+  <div class="resumen">
 
-    <div class="label">
-      Capital actual
+    <div class="tarjeta">
+      <div class="detalle">Efectivo</div>
+      <div class="valor" id="efectivo">$2,000.00</div>
     </div>
 
-    <div class="capital-total">
-      $10,000.00
-    </div>
-
-    <div class="rendimiento">
-      0.00%
-    </div>
-
-  </div>
-
-  <div class="grid">
-
-    <div class="card">
-      <div class="label">Efectivo</div>
-      <div class="valor">$2,000.00</div>
-    </div>
-
-    <div class="card">
-      <div class="label">Invertido</div>
-      <div class="valor">$8,000.00</div>
+    <div class="tarjeta">
+      <div class="detalle">Invertido</div>
+      <div class="valor" id="invertido">$8,000.00</div>
     </div>
 
   </div>
 
-  <h2>Posiciones · 4 / 5</h2>
+  <h2>Posiciones · <span id="numeroPosiciones">4</span> / 5</h2>
 
-  <div class="posicion">
-    <div>
-      <div class="ticker">JPM</div>
-      <div class="detalle">5.6635 acciones</div>
-    </div>
-
-    <div>
-      <strong>$2,000.00</strong>
-      <div class="detalle positivo">0.00%</div>
-    </div>
-  </div>
-
-  <div class="posicion">
-    <div>
-      <div class="ticker">JNJ</div>
-      <div class="detalle">7.5926 acciones</div>
-    </div>
-
-    <div>
-      <strong>$2,000.00</strong>
-      <div class="detalle positivo">0.00%</div>
-    </div>
-  </div>
-
-  <div class="posicion">
-    <div>
-      <div class="ticker">AAPL</div>
-      <div class="detalle">6.0051 acciones</div>
-    </div>
-
-    <div>
-      <strong>$2,000.00</strong>
-      <div class="detalle positivo">0.00%</div>
-    </div>
-  </div>
-
-  <div class="posicion">
-    <div>
-      <div class="ticker">XOM</div>
-      <div class="detalle">12.7445 acciones</div>
-    </div>
-
-    <div>
-      <strong>$2,000.00</strong>
-      <div class="detalle positivo">0.00%</div>
-    </div>
-  </div>
+  <div id="posiciones"></div>
 
   <h2>Próxima apertura</h2>
 
-  <div class="ordenes">
-    <div class="sin-ordenes">
-      No hay órdenes pendientes
-    </div>
+  <div class="estado" id="estado">
+    Consultando precios...
   </div>
 
-  <div class="footer">
+  <div class="actualizacion" id="actualizacion"></div>
+
+  <footer>
     Estrategia 2 · Cuenta PAPER
-  </div>
+  </footer>
 
 </div>
+
+<script>
+
+const CAPITAL_INICIAL = 10000;
+const EFECTIVO = 2000;
+
+/*
+  Cantidades de acciones de nuestra cartera PAPER.
+  Se mantienen las cantidades de la versión original.
+*/
+const cartera = [
+  { ticker: "JPM", acciones: 5.6635, referencia: 2000 },
+  { ticker: "JNJ", acciones: 7.5926, referencia: 2000 },
+  { ticker: "AAPL", acciones: 6.0051, referencia: 2000 },
+  { ticker: "XOM", acciones: 12.7445, referencia: 2000 }
+];
+
+const formatoDinero = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD"
+});
+
+function pintarCartera() {
+
+  const contenedor = document.getElementById("posiciones");
+
+  contenedor.innerHTML = "";
+
+  let totalInvertido = 0;
+
+  cartera.forEach(posicion => {
+
+    /*
+      Por ahora usamos el valor de referencia.
+      En el siguiente módulo sustituiremos este valor
+      por la cotización recibida del proveedor de mercado.
+    */
+
+    const valorActual = posicion.referencia;
+
+    totalInvertido += valorActual;
+
+    const rendimiento =
+      ((valorActual - posicion.referencia) /
+      posicion.referencia) * 100;
+
+    const clase =
+      rendimiento >= 0 ? "positivo" : "negativo";
+
+    const tarjeta = document.createElement("div");
+
+    tarjeta.className = "posicion";
+
+    tarjeta.innerHTML = `
+      <div>
+        <div class="ticker">${posicion.ticker}</div>
+
+        <div class="detalle">
+          ${posicion.acciones.toFixed(4)} acciones
+        </div>
+      </div>
+
+      <div class="derecha">
+
+        <div class="ticker">
+          ${formatoDinero.format(valorActual)}
+        </div>
+
+        <div class="${clase}">
+          ${rendimiento.toFixed(2)}%
+        </div>
+
+      </div>
+    `;
+
+    contenedor.appendChild(tarjeta);
+
+  });
+
+  const capitalActual = EFECTIVO + totalInvertido;
+
+  const rendimientoTotal =
+    ((capitalActual - CAPITAL_INICIAL) /
+    CAPITAL_INICIAL) * 100;
+
+  document.getElementById("capital").textContent =
+    formatoDinero.format(capitalActual);
+
+  document.getElementById("efectivo").textContent =
+    formatoDinero.format(EFECTIVO);
+
+  document.getElementById("invertido").textContent =
+    formatoDinero.format(totalInvertido);
+
+  document.getElementById("numeroPosiciones").textContent =
+    cartera.length;
+
+  const elementoRendimiento =
+    document.getElementById("rendimiento");
+
+  elementoRendimiento.textContent =
+    rendimientoTotal.toFixed(2) + "%";
+
+  elementoRendimiento.className =
+    rendimientoTotal >= 0 ? "positivo" : "negativo";
+
+  document.getElementById("estado").textContent =
+    "Cartera PAPER cargada correctamente";
+
+  document.getElementById("actualizacion").textContent =
+    "Última actualización: " +
+    new Date().toLocaleString("es-MX");
+
+}
+
+pintarCartera();
+
+</script>
 
 </body>
 </html>
