@@ -1,37 +1,37 @@
 {
-  "actualizado": "2026-07-28T18:02:29.497136+00:00",
+  "actualizado": "2026-07-28T22:17:41.693015+00:00",
   "cotizaciones": {
     "JPM": {
-      "precio": 355.99,
-      "cambio": -0.21,
-      "porcentaje": -0.059,
+      "precio": 357.31,
+      "cambio": 1.11,
+      "porcentaje": 0.3116,
       "apertura": 357.3,
       "maximo": 359.3,
       "minimo": 354.15,
       "cierre_anterior": 356.2
     },
     "JNJ": {
-      "precio": 267.63,
-      "cambio": 1.68,
-      "porcentaje": 0.6317,
+      "precio": 266.73,
+      "cambio": 0.78,
+      "porcentaje": 0.2933,
       "apertura": 270,
       "maximo": 274.9,
-      "minimo": 266.9,
+      "minimo": 266.18,
       "cierre_anterior": 265.95
     },
     "AAPL": {
-      "precio": 339.77,
-      "cambio": 2.86,
-      "porcentaje": 0.8489,
-      "apertura": 338.835,
+      "precio": 340.08,
+      "cambio": 3.17,
+      "porcentaje": 0.9409,
+      "apertura": 340.03,
       "maximo": 342.89,
       "minimo": 335.6,
       "cierre_anterior": 336.91
     },
     "XOM": {
-      "precio": 153.07,
-      "cambio": -1.7,
-      "porcentaje": -1.0984,
+      "precio": 153.04,
+      "cambio": -1.73,
+      "porcentaje": -1.1178,
       "apertura": 154.17,
       "maximo": 156.18,
       "minimo": 151.875,
