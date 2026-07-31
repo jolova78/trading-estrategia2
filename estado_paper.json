@@ -72,12 +72,20 @@
         "fecha_senal": "2026-07-29 04:00:00+00:00",
         "ordenes": []
       }
+    },
+    {
+      "fecha": "2026-07-31T08:13:01.212068+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-07-30 04:00:00+00:00",
+        "ordenes": []
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-07-29 04:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-07-30T06:42:54.880601+00:00",
-  "capital_estimado": 10001.35,
+  "ultima_senal": "2026-07-30 04:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-07-31T08:13:01.212046+00:00",
+  "capital_estimado": 9931.93,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
