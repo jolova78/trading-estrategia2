@@ -31,7 +31,20 @@
       "costo_inicial": 2000.0
     }
   ],
-  "ordenes_pendientes": [],
+  "ordenes_pendientes": [
+    {
+      "activo": "AAPL",
+      "accion": "VENDER",
+      "motivo": "Señal de salida",
+      "ejecucion": "Próxima apertura"
+    },
+    {
+      "activo": "AMZN",
+      "accion": "COMPRAR",
+      "motivo": "Señal de entrada",
+      "ejecucion": "Próxima apertura"
+    }
+  ],
   "historial": [
     {
       "fecha": "2026-07-27T04:06:47.563953+00:00",
@@ -80,12 +93,33 @@
         "fecha_senal": "2026-07-30 04:00:00+00:00",
         "ordenes": []
       }
+    },
+    {
+      "fecha": "2026-08-01T06:47:41.074234+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-07-31 04:00:00+00:00",
+        "ordenes": [
+          {
+            "activo": "AAPL",
+            "accion": "VENDER",
+            "motivo": "Señal de salida",
+            "ejecucion": "Próxima apertura"
+          },
+          {
+            "activo": "AMZN",
+            "accion": "COMPRAR",
+            "motivo": "Señal de entrada",
+            "ejecucion": "Próxima apertura"
+          }
+        ]
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-07-30 04:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-07-31T08:13:01.212046+00:00",
-  "capital_estimado": 9931.93,
+  "ultima_senal": "2026-07-31 04:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-08-01T06:47:41.074211+00:00",
+  "capital_estimado": 9774.54,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
