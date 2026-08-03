@@ -103,6 +103,47 @@ def guardar_estado(estado):
         ARCHIVO_ESTADO
     )
 
+ARCHIVO_TRADES = "trades.json"
+
+
+def cargar_trades():
+    """
+    Carga el historial de operaciones.
+    """
+    try:
+        with open(
+            ARCHIVO_TRADES,
+            "r",
+            encoding="utf-8"
+        ) as archivo:
+            return json.load(archivo)
+
+    except FileNotFoundError:
+        return []
+
+
+def guardar_trades(trades):
+    """
+    Guarda el historial de operaciones.
+    """
+    temporal = ARCHIVO_TRADES + ".tmp"
+
+    with open(
+        temporal,
+        "w",
+        encoding="utf-8"
+    ) as archivo:
+        json.dump(
+            trades,
+            archivo,
+            indent=2,
+            ensure_ascii=False
+        )
+
+    os.replace(
+        temporal,
+        ARCHIVO_TRADES
+    )
 
 def crear_cliente():
     api_key = os.environ.get(
