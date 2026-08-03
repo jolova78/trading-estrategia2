@@ -749,7 +749,7 @@ def ejecutar_compras(
             }
         )
 
-                trades = cargar_trades()
+        trades = cargar_trades()
 
         trades.append({
             "id": f"{ticker}-{ahora_utc()}",
