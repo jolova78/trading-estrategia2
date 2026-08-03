@@ -756,6 +756,14 @@ def ejecutar():
         estado,
         datos
     )
+    
+    estado["capital_estimado"] = round(
+    capital_estimado(
+        estado,
+        datos
+    ),
+    2
+    )
 
     # Generar las órdenes para la próxima apertura
     ordenes = generar_ordenes(
@@ -763,10 +771,7 @@ def ejecutar():
         senales
     )
 
-    capital = capital_estimado(
-        estado,
-        datos
-    )
+    capital = estado["capital_estimado"]
 
     estado[
         "max_posiciones"
