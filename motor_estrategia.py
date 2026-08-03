@@ -477,6 +477,9 @@ def registrar_evento(
         "detalle": detalle,
     })
 
+    # Conservar únicamente los últimos 1000 eventos
+    if len(historial) > 1000:
+        del historial[:-1000]
 
 # ============================================================
 # MOTOR
