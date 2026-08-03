@@ -634,11 +634,11 @@ def ejecutar_ventas(
                 ) * 100,
                 2
             )            ,
+            "capital_antes": efectivo_antes,
             "capital_despues": round(
                 efectivo,
                 2
             )
-        })
 
         guardar_trades(
             trades
