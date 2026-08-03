@@ -796,7 +796,7 @@ def ejecutar():
 
     estado["ultima_ejecucion_ordenes"] = ahora_utc()
     
-    eestado["capital_estimado"] = round(
+    estado["capital_estimado"] = round(
         capital_estimado(
             estado,
             datos
