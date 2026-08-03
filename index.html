@@ -331,8 +331,7 @@ function pintarCartera(
     const acciones =
       Number(posicion.acciones);
 
-    const precioEntrada =
-      Number(posicion.precio_compra);
+    const precioEntrada = Number(posicion.precio_compra ?? posicion.precio_entrada);
 
     const costoInicial =
       acciones * precioEntrada;
