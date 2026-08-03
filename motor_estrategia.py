@@ -477,8 +477,95 @@ def registrar_evento(
 # MOTOR
 # ============================================================
 
-def ejecutar_ventas():
-    ...
+def ejecutar_ventas(
+    estado,
+    datos
+):
+
+    ordenes = estado.get(
+        "ordenes_pendientes",
+        []
+    )
+
+    posiciones = estado.get(
+        "posiciones",
+        []
+    )
+
+    nuevas_posiciones = []
+
+    efectivo = float(
+        estado.get(
+            "efectivo",
+            0
+        )
+    )
+
+    for posicion in posiciones:
+
+        ticker = posicion["activo"]
+
+        vender = any(
+            o["accion"] == "VENDER"
+            and o["activo"] == ticker
+            for o in ordenes
+        )
+
+        if not vender:
+            nuevas_posiciones.append(
+                posicion
+            )
+            continue
+
+        if ticker not in datos:
+            nuevas_posiciones.append(
+                posicion
+            )
+            continue
+
+        apertura = float(
+            datos[ticker]
+            .iloc[-1]["open"]
+        )
+
+        precio = round(
+            apertura *
+            SLIPPAGE_VENTA,
+            2
+        )
+
+        acciones = float(
+            posicion["acciones"]
+        )
+
+        importe = round(
+            acciones * precio,
+            2
+        )
+
+        efectivo += importe
+
+        registrar_evento(
+            estado,
+            "VENTA",
+            {
+                "activo": ticker,
+                "acciones": acciones,
+                "precio": precio,
+                "importe": importe
+            }
+        )
+
+    estado["efectivo"] = round(
+        efectivo,
+        2
+    )
+
+    estado["posiciones"] = (
+        nuevas_posiciones
+    )
+
+    return estado
 
 def ejecutar_compras():
     ...
