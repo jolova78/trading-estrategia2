@@ -1,4 +1,4 @@
-ex"""
+"""
 ESTRATEGIA 2 - MOTOR PAPER
 Versión operativa para GitHub
 
