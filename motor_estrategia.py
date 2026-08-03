@@ -615,7 +615,7 @@ def ejecutar_compras(
             2
         )
 
-                capital_por_posicion = (
+        capital_por_posicion = (
             estado["efectivo"]
             + sum(
                 p["cantidad"] * datos[p["activo"]].iloc[-1]["close"]
