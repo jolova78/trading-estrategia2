@@ -477,6 +477,12 @@ def registrar_evento(
 # MOTOR
 # ============================================================
 
+if estado.get("ordenes_pendientes"):
+    estado = ejecutar_ordenes(
+        estado=estado,
+        datos=datos,
+        fecha=fecha_actual
+    )
 def ejecutar():
 
     print(
