@@ -633,7 +633,7 @@ def ejecutar_ventas(
                     / posicion["precio_compra"]
                 ) * 100,
                 2
-            )            ,
+            ),
             "capital_antes": efectivo_antes,
             "capital_despues": round(
                 efectivo,
