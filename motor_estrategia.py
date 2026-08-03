@@ -602,6 +602,13 @@ def ejecutar_ventas(
             "acciones": acciones,
             "precio_compra": posicion["precio_compra"],
             "precio_venta": precio,
+            "fecha_compra": posicion["fecha_compra"],
+            "dias_operacion": (
+                pd.Timestamp(ahora_utc()).date()
+                - pd.Timestamp(
+                    posicion["fecha_compra"]
+                ).date()
+            ).days,
             "importe_compra": round(
                 acciones * posicion["precio_compra"],
                 2
