@@ -758,12 +758,12 @@ def ejecutar():
     )
     
     estado["capital_estimado"] = round(
-    capital_estimado(
-        estado,
-        datos
-    ),
-    2
-    )
+        capital_estimado(
+            estado,
+            datos
+        ),
+        2
+        )
 
     # Generar las órdenes para la próxima apertura
     ordenes = generar_ordenes(
