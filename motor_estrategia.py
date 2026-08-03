@@ -746,7 +746,10 @@ def generar_estado_diario(
     )
 
     estado["version_motor"] = "2.1.0"
+    
+    estado["max_posiciones"] = MAX_POSICIONES
 
+    estado["peso_posicion"] = PESO_POSICION
     return estado
 
 def ejecutar():
@@ -813,14 +816,6 @@ def ejecutar():
     )
 
     capital = estado["capital_estimado"]
-
-    estado[
-        "max_posiciones"
-    ] = MAX_POSICIONES
-
-    estado[
-        "peso_posicion"
-    ] = PESO_POSICION
     
     estado[
         "reglas_motor"
