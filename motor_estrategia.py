@@ -796,22 +796,28 @@ def ejecutar():
 
     estado["ultima_ejecucion_ordenes"] = ahora_utc()
     
+    # Generar las órdenes para la próxima apertura
+    ordenes = generar_ordenes(
+        estado,
+        senales
+    )
+
     estado = generar_estado_diario(
-    estado,
-    datos,
-    fecha_senal,
-    ordenes
-)
+        estado,
+        datos,
+        fecha_senal,
+        ordenes
+    )
 
-capital = estado["capital_estimado"]
+    capital = estado["capital_estimado"]
 
-estado[
-    "max_posiciones"
-] = MAX_POSICIONES
+    estado[
+        "max_posiciones"
+    ] = MAX_POSICIONES
 
-estado[
-    "peso_posicion"
-] = PESO_POSICION
+    estado[
+        "peso_posicion"
+    ] = PESO_POSICION
     
     estado[
         "reglas_motor"
