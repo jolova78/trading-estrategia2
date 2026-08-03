@@ -602,6 +602,7 @@ def ejecutar_ventas(
             "acciones": acciones,
             "precio_compra": posicion["precio_compra"],
             "precio_venta": precio,
+            "motivo_salida": "Close < EMA50",
             "fecha_compra": posicion["fecha_compra"],
             "dias_operacion": (
                 pd.Timestamp(ahora_utc()).date()
