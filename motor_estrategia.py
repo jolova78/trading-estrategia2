@@ -594,6 +594,38 @@ def ejecutar_ventas(
 
         efectivo += importe
 
+                trades = cargar_trades()
+
+        trades.append({
+            "fecha": ahora_utc(),
+            "activo": ticker,
+            "acciones": acciones,
+            "precio_compra": posicion["precio_compra"],
+            "precio_venta": precio,
+            "importe_compra": round(
+                acciones * posicion["precio_compra"],
+                2
+            ),
+            "importe_venta": importe,
+            "utilidad": round(
+                importe - (
+                    acciones * posicion["precio_compra"]
+                ),
+                2
+            ),
+            "rendimiento": round(
+                (
+                    (precio - posicion["precio_compra"])
+                    / posicion["precio_compra"]
+                ) * 100,
+                2
+            )
+        })
+
+        guardar_trades(
+            trades
+        )
+
         registrar_evento(
             estado,
             "VENTA",
