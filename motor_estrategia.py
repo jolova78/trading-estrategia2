@@ -708,7 +708,44 @@ def ejecutar_ordenes(
     )
 
     return estado
-    
+
+def generar_estado_diario(
+    estado,
+    datos,
+    fecha_senal,
+    ordenes
+):
+    """
+    Actualiza toda la información del estado
+    después de ejecutar el motor.
+    """
+
+    estado["capital_estimado"] = round(
+        capital_estimado(
+            estado,
+            datos
+        ),
+        2
+    )
+
+    estado["ultima_senal"] = str(
+        fecha_senal
+    )
+
+    estado["ordenes_pendientes"] = ordenes
+
+    estado["ordenes_generadas"] = len(
+        ordenes
+    )
+
+    estado["ultima_actualizacion_motor"] = (
+        ahora_utc()
+    )
+
+    estado["version_motor"] = "2.1.0"
+
+    return estado
+
 def ejecutar():
 
     print(
@@ -759,7 +796,7 @@ def ejecutar():
 
     estado["ultima_ejecucion_ordenes"] = ahora_utc()
     
-    estado["capital_estimado"] = round(
+    eestado["capital_estimado"] = round(
         capital_estimado(
             estado,
             datos
