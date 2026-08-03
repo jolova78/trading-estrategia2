@@ -615,19 +615,19 @@ def ejecutar_compras(
             2
         )
 
-        capital_por_posicion = (
-    estado["efectivo"] +
-    sum(
-        p["cantidad"] * datos[p["activo"]].iloc[-1]["close"]
-        for p in estado["posiciones"]
-        if p["activo"] in datos
-    )
-) * PESO_POSICION
+                capital_por_posicion = (
+            estado["efectivo"]
+            + sum(
+                p["cantidad"] * datos[p["activo"]].iloc[-1]["close"]
+                for p in estado["posiciones"]
+                if p["activo"] in datos
+            )
+        ) * PESO_POSICION
 
-monto = min(
-    capital_por_posicion,
-    efectivo
-)
+        monto = min(
+            capital_por_posicion,
+            efectivo
+        )
         if monto <= 0:
             continue
 
