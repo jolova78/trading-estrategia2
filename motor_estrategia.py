@@ -748,10 +748,7 @@ def ejecutar():
     ordenes = generar_ordenes(
         estado,
         senales
-    ) = ejecutar_ordenes(
-    estado,
-    datos
-)
+    )
 
     capital = capital_estimado(
         estado,
