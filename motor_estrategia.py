@@ -796,13 +796,6 @@ def ejecutar():
     ] = ahora_utc()
 
     estado[
-        "capital_estimado"
-    ] = round(
-        capital,
-        2
-    )
-
-    estado[
         "reglas_motor"
     ] = {
         "entrada": (
