@@ -27,7 +27,7 @@ jobs:
           from datetime import datetime, timezone
 
           api_key = os.environ["FINNHUB_API_KEY"]
-          simbolos = ["JPM", "JNJ", "AAPL", "XOM"]
+          simbolos = ["JPM", "JNJ", "AAPL", "XOM", "AMZN"]
 
           datos = {
               "actualizado": datetime.now(timezone.utc).isoformat(),
