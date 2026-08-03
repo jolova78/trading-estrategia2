@@ -737,10 +737,17 @@ def ejecutar():
         fecha_senal
     )
 
-    ordenes = generar_ordenes(
-        estado,
-        senales
-    )
+    # Ejecutar órdenes pendientes de la sesión anterior
+estado = ejecutar_ordenes(
+    estado,
+    datos
+)
+
+# Generar las órdenes para la próxima apertura
+ordenes = generar_ordenes(
+    estado,
+    senales
+)
 
     capital = capital_estimado(
         estado,
