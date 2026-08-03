@@ -771,6 +771,8 @@ def ejecutar():
         senales
     )
 
+    estado["ordenes_generadas"] = len(ordenes)
+    
     capital = estado["capital_estimado"]
 
     estado[
