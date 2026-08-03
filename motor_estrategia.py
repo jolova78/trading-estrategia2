@@ -800,8 +800,8 @@ def ejecutar():
     ] = ahora_utc()
 
     estado[
-    "version_motor"
-] = "2.1.0"
+        "version_motor"
+    ] = "2.1.0"
     
     estado[
         "reglas_motor"
