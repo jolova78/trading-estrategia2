@@ -749,9 +749,7 @@ def ejecutar_compras(
                 "activo": ticker,
                 "acciones": acciones,
                 "precio_compra": precio,
-                "fecha_compra": estado.get(
-                    "fecha_actual"
-                )
+                "fecha_compra": ahora_utc()
             }
         )
 
