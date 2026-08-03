@@ -749,6 +749,25 @@ def ejecutar_compras(
             }
         )
 
+                trades = cargar_trades()
+
+        trades.append({
+            "id": f"{ticker}-{ahora_utc()}",
+            "fecha": ahora_utc(),
+            "tipo": "COMPRA",
+            "activo": ticker,
+            "acciones": acciones,
+            "precio": precio,
+            "importe": importe,
+            "efectivo_despues": round(
+                efectivo,
+                2
+            )
+        })
+
+        guardar_trades(
+            trades
+        )
         registrar_evento(
             estado,
             "COMPRA",
