@@ -606,7 +606,7 @@ def ejecutar_ventas(
             "id": f"{ticker}-{ahora_utc()}",
             "activo": ticker,
             "acciones": acciones,
-            "precio_compra": posicion["precio_compra"],
+            "precio_compra": posicion["precio_entrada"],
             "precio_venta": precio,
             "motivo_salida": "Close < EMA50",
             "fecha_compra": posicion["fecha_compra"],
@@ -617,20 +617,20 @@ def ejecutar_ventas(
                 ).date()
             ).days,
             "importe_compra": round(
-                acciones * posicion["precio_compra"],
+                acciones * posicion["precio_entrada"],
                 2
             ),
             "importe_venta": importe,
             "utilidad": round(
                 importe - (
-                    acciones * posicion["precio_compra"]
+                    acciones * posicion["precio_entrada"]
                 ),
                 2
             ),
             "rendimiento": round(
                 (
-                    (precio - posicion["precio_compra"])
-                    / posicion["precio_compra"]
+                    (precio - posicion["precio_entrada"])
+                    / posicion["precio_entrada"]
                 ) * 100,
                 2
             ),
