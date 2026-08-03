@@ -567,11 +567,135 @@ def ejecutar_ventas(
 
     return estado
 
-def ejecutar_compras():
-    ...
+def ejecutar_compras(
+    estado,
+    datos
+):
 
-def ejecutar_ordenes():
-    ...
+    ordenes = estado.get(
+        "ordenes_pendientes",
+        []
+    )
+
+    posiciones = estado.get(
+        "posiciones",
+        []
+    )
+
+    efectivo = float(
+        estado.get(
+            "efectivo",
+            0
+        )
+    )
+
+    for orden in ordenes:
+
+        if orden["accion"] != "COMPRAR":
+            continue
+
+        ticker = orden["activo"]
+
+        if ticker not in datos:
+            continue
+
+        apertura = float(
+            datos[ticker]
+            .iloc[-1]["open"]
+        )
+
+        precio = round(
+            apertura *
+            SLIPPAGE_COMPRA,
+            2
+        )
+
+        monto = min(
+            CAPITAL_POR_POSICION,
+            efectivo
+        )
+
+        if monto <= 0:
+            continue
+
+        acciones = round(
+            monto / precio,
+            6
+        )
+
+        importe = round(
+            acciones * precio,
+            2
+        )
+
+        efectivo -= importe
+
+        posiciones.append(
+            {
+                "activo": ticker,
+                "acciones": acciones,
+                "precio_compra": precio,
+                "fecha_compra": estado.get(
+                    "fecha_actual"
+                )
+            }
+        )
+
+        registrar_evento(
+            estado,
+            "COMPRA",
+            {
+                "activo": ticker,
+                "acciones": acciones,
+                "precio": precio,
+                "importe": importe
+            }
+        )
+
+    estado["efectivo"] = round(
+        efectivo,
+        2
+    )
+
+    estado["posiciones"] = posiciones
+
+    return estado
+
+def ejecutar_ordenes(
+    estado,
+    datos
+):
+
+    ordenes = estado.get(
+        "ordenes_pendientes",
+        []
+    )
+
+    if not ordenes:
+        return estado
+
+    estado = ejecutar_ventas(
+        estado,
+        datos
+    )
+
+    estado = ejecutar_compras(
+        estado,
+        datos
+    )
+
+    estado["ordenes_ejecutadas"] = list(
+        ordenes
+    )
+
+    estado["ordenes_pendientes"] = []
+
+    estado["ultima_ejecucion"] = (
+        estado.get("fecha_actual")
+    )
+
+    return estado
+    
 def ejecutar():
 
     print(
