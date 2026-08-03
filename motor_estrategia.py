@@ -598,6 +598,7 @@ def ejecutar_ventas(
 
         trades.append({
             "fecha": ahora_utc(),
+            "id": f"{ticker}-{ahora_utc()}",
             "activo": ticker,
             "acciones": acciones,
             "precio_compra": posicion["precio_compra"],
