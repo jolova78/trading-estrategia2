@@ -47,8 +47,13 @@ ACTIVOS = [
     "XOM",
 ]
 
+CAPITAL_INICIAL = 10000.00
+
 MAX_POSICIONES = 5
+
 PESO_POSICION = 0.20
+
+CAPITAL_POR_POSICION = CAPITAL_INICIAL *
 
 SLIPPAGE_COMPRA = 1.001
 SLIPPAGE_VENTA = 0.999
@@ -610,11 +615,19 @@ def ejecutar_compras(
             2
         )
 
-        monto = min(
-            CAPITAL_POR_POSICION,
-            efectivo
-        )
+        capital_por_posicion = (
+    estado["efectivo"] +
+    sum(
+        p["cantidad"] * datos[p["activo"]].iloc[-1]["close"]
+        for p in estado["posiciones"]
+        if p["activo"] in datos
+    )
+) * PESO_POSICION
 
+monto = min(
+    capital_por_posicion,
+    efectivo
+)
         if monto <= 0:
             continue
 
