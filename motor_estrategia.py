@@ -639,7 +639,8 @@ def ejecutar_ventas(
                 efectivo,
                 2
             )
-
+        })
+            
         guardar_trades(
             trades
         )
