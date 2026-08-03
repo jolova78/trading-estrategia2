@@ -609,11 +609,17 @@ def ejecutar_ventas(
             "precio_compra": posicion["precio_entrada"],
             "precio_venta": precio,
             "motivo_salida": "Close < EMA50",
-            "fecha_compra": posicion["fecha_compra"],
+    "fecha_compra": posicion.get(
+    "fecha_compra",
+    estado.get("fecha_inicio")
+),,
             "dias_operacion": (
                 pd.Timestamp(ahora_utc()).date()
                 - pd.Timestamp(
-                    posicion["fecha_compra"]
+                    posicion.get(
+    "fecha_compra",
+    estado.get("fecha_inicio")
+                    )
                 ).date()
             ).days,
             "importe_compra": round(
