@@ -592,6 +592,11 @@ def ejecutar_ventas(
             2
         )
 
+        efectivo_antes = round(
+            efectivo,
+            2
+        )
+
         efectivo += importe
 
         trades = cargar_trades()
