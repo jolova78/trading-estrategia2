@@ -612,7 +612,7 @@ def ejecutar_ventas(
     "fecha_compra": posicion.get(
     "fecha_compra",
     estado.get("fecha_inicio")
-),,
+            ),
             "dias_operacion": (
                 pd.Timestamp(ahora_utc()).date()
                 - pd.Timestamp(
@@ -620,7 +620,7 @@ def ejecutar_ventas(
     "fecha_compra",
     estado.get("fecha_inicio")
                     )
-                ).date()
+            ).date()
             ).days,
             "importe_compra": round(
                 acciones * posicion["precio_entrada"],
