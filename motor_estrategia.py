@@ -594,7 +594,7 @@ def ejecutar_ventas(
 
         efectivo += importe
 
-                trades = cargar_trades()
+        trades = cargar_trades()
 
         trades.append({
             "fecha": ahora_utc(),
