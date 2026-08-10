@@ -1,59 +1,59 @@
 {
-  "actualizado": "2026-08-07T22:06:12.282447+00:00",
+  "actualizado": "2026-08-10T16:10:48.721467+00:00",
   "cotizaciones": {
     "JPM": {
-      "precio": 357.52,
-      "cambio": 1.22,
-      "porcentaje": 0.3424,
-      "apertura": 355.76,
-      "maximo": 358.8543,
-      "minimo": 353.33,
-      "cierre_anterior": 356.3
+      "precio": 358.42,
+      "cambio": 0.9,
+      "porcentaje": 0.2517,
+      "apertura": 357.51,
+      "maximo": 359.99,
+      "minimo": 356.5,
+      "cierre_anterior": 357.52
     },
     "JNJ": {
-      "precio": 259.24,
-      "cambio": 2.26,
-      "porcentaje": 0.8794,
-      "apertura": 255.89,
-      "maximo": 259.6,
-      "minimo": 255.12,
-      "cierre_anterior": 256.98
+      "precio": 259.72,
+      "cambio": 0.48,
+      "porcentaje": 0.1852,
+      "apertura": 259.135,
+      "maximo": 261.05,
+      "minimo": 258.55,
+      "cierre_anterior": 259.24
     },
     "AAPL": {
-      "precio": 313.33,
-      "cambio": 0.92,
-      "porcentaje": 0.2945,
-      "apertura": 311.45,
-      "maximo": 314.81,
-      "minimo": 310.74,
-      "cierre_anterior": 312.41
+      "precio": 306.11,
+      "cambio": -7.22,
+      "porcentaje": -2.3043,
+      "apertura": 310.01,
+      "maximo": 310.01,
+      "minimo": 304.61,
+      "cierre_anterior": 313.33
     },
     "XOM": {
-      "precio": 153.04,
-      "cambio": -1.8,
-      "porcentaje": -1.1625,
-      "apertura": 152.64,
-      "maximo": 153.67,
-      "minimo": 151.53,
-      "cierre_anterior": 154.84
+      "precio": 158.34,
+      "cambio": 5.3,
+      "porcentaje": 3.4631,
+      "apertura": 153.91,
+      "maximo": 158.44,
+      "minimo": 153.91,
+      "cierre_anterior": 153.04
     },
     "AMZN": {
-      "precio": 274.48,
-      "cambio": 2.22,
-      "porcentaje": 0.8154,
-      "apertura": 272.87,
-      "maximo": 278.31,
-      "minimo": 272.75,
-      "cierre_anterior": 272.26
+      "precio": 279.34,
+      "cambio": 4.86,
+      "porcentaje": 1.7706,
+      "apertura": 274.25,
+      "maximo": 280.14,
+      "minimo": 273.6001,
+      "cierre_anterior": 274.48
     },
     "GOOGL": {
-      "precio": 354.3,
-      "cambio": -3.45,
-      "porcentaje": -0.9644,
-      "apertura": 356.72,
-      "maximo": 358.9,
-      "minimo": 353.78,
-      "cierre_anterior": 357.75
+      "precio": 354.57,
+      "cambio": 0.27,
+      "porcentaje": 0.0762,
+      "apertura": 355.5875,
+      "maximo": 357.18,
+      "minimo": 352.71,
+      "cierre_anterior": 354.3
     }
   }
 }
