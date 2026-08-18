@@ -1,57 +1,57 @@
 {
-  "actualizado": "2026-08-18T14:19:12.167005+00:00",
+  "actualizado": "2026-08-18T15:57:52.521820+00:00",
   "cotizaciones": {
     "JPM": {
-      "precio": 361.45,
-      "cambio": 0.49,
-      "porcentaje": 0.1357,
+      "precio": 359.98,
+      "cambio": -0.98,
+      "porcentaje": -0.2715,
       "apertura": 361.245,
       "maximo": 362.78,
-      "minimo": 360.1,
+      "minimo": 359.755,
       "cierre_anterior": 360.96
     },
     "JNJ": {
-      "precio": 269.48,
-      "cambio": 7.11,
-      "porcentaje": 2.7099,
+      "precio": 271.18,
+      "cambio": 8.81,
+      "porcentaje": 3.3579,
       "apertura": 265.895,
-      "maximo": 271.35,
+      "maximo": 271.73,
       "minimo": 265.895,
       "cierre_anterior": 262.37
     },
     "AAPL": {
-      "precio": 309.67,
-      "cambio": 4.08,
-      "porcentaje": 1.3351,
+      "precio": 309.69,
+      "cambio": 4.1,
+      "porcentaje": 1.3417,
       "apertura": 306.41,
-      "maximo": 310.27,
+      "maximo": 311.49,
       "minimo": 305.74,
       "cierre_anterior": 305.59
     },
     "XOM": {
-      "precio": 164.23,
-      "cambio": 2.77,
-      "porcentaje": 1.7156,
+      "precio": 164.59,
+      "cambio": 3.13,
+      "porcentaje": 1.9386,
       "apertura": 163.365,
-      "maximo": 165.27,
-      "minimo": 163.365,
+      "maximo": 165.37,
+      "minimo": 163.254,
       "cierre_anterior": 161.46
     },
     "AMZN": {
-      "precio": 259.87,
-      "cambio": -1.44,
-      "porcentaje": -0.5511,
+      "precio": 260.48,
+      "cambio": -0.83,
+      "porcentaje": -0.3176,
       "apertura": 260.615,
-      "maximo": 261.18,
+      "maximo": 262.18,
       "minimo": 257.73,
       "cierre_anterior": 261.31
     },
     "GOOGL": {
-      "precio": 342.23,
-      "cambio": -1.77,
-      "porcentaje": -0.5145,
+      "precio": 343,
+      "cambio": -1,
+      "porcentaje": -0.2907,
       "apertura": 342.3625,
-      "maximo": 343.18,
+      "maximo": 344.11,
       "minimo": 340.19,
       "cierre_anterior": 344
     }
