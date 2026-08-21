@@ -122,6 +122,35 @@ def cargar_trades():
         return []
 
 
+def calcular_dias_operacion(fecha_compra, fecha_referencia=None):
+    """
+    Calcula los días de operación de forma segura.
+
+    Evita que una fecha ausente/NaT rompa el motor al restar
+    datetime.date contra pandas.NaT.
+    """
+    if fecha_compra in (None, ""):
+        return None
+
+    try:
+        ts_compra = pd.Timestamp(fecha_compra)
+        if pd.isna(ts_compra):
+            return None
+
+        if fecha_referencia in (None, ""):
+            ts_ref = pd.Timestamp.now(tz="UTC")
+        else:
+            ts_ref = pd.Timestamp(fecha_referencia)
+
+        if pd.isna(ts_ref):
+            ts_ref = pd.Timestamp.now(tz="UTC")
+
+        return (ts_ref.date() - ts_compra.date()).days
+
+    except (TypeError, ValueError, OverflowError):
+        return None
+
+
 def guardar_trades(trades):
     """
     Guarda el historial de operaciones.
@@ -646,21 +675,7 @@ def ejecutar_ventas(
 
             "fecha_compra": fecha_compra,
 
-            "dias_operacion": (
-
-                pd.Timestamp(
-
-                    ahora_utc()
-
-                ).date()
-
-                - pd.Timestamp(
-
-                    fecha_compra
-
-                ).date()
-
-            ).days,
+            "dias_operacion": calcular_dias_operacion(fecha_compra, ahora_utc()),
 
             "importe_compra": round(
 
@@ -924,7 +939,7 @@ def generar_estado_diario(
         ahora_utc()
     )
 
-    estado["version_motor"] = "2.1.0"
+    estado["version_motor"] = "2.1.1"
     
     estado["max_posiciones"] = MAX_POSICIONES
 
