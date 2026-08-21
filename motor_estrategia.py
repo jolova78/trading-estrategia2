@@ -601,51 +601,115 @@ def ejecutar_ventas(
 
         trades = cargar_trades()
 
-        trades.append({
-            "fecha": ahora_utc(),
-            "id": f"{ticker}-{ahora_utc()}",
-            "activo": ticker,
-            "acciones": acciones,
-            "precio_compra": posicion["precio_entrada"],
-            "precio_venta": precio,
-            "motivo_salida": "Close < EMA50",
-            "fecha_compra": posicion.get(
-            "fecha_compra",
-    estado.get("fecha_inicio")
-            ),
-            "dias_operacion": (
-                pd.Timestamp(ahora_utc()).date()
-                - pd.Timestamp(
-                    posicion.get(
-             "fecha_compra",
-    estado.get("fecha_inicio")
-                    )
-            ).date()
-            ).days,
-            "importe_compra": round(
-                acciones * posicion["precio_entrada"],
-                2
-            ),
-            "importe_venta": importe,
-            "utilidad": round(
-                importe - (
-                    acciones * posicion["precio_entrada"]
-                ),
-                2
-            ),
-            "rendimiento": round(
-                (
-                    (precio - posicion["precio_entrada"])
-                    / posicion["precio_entrada"]
-                ) * 100,
-                2
-            ),
-            "capital_antes": efectivo_antes,
-            "capital_despues": round(
-                efectivo,
-                2
+
+        precio_compra = float(
+
+            posicion.get(
+
+                "precio_compra",
+
+                posicion.get(
+
+                    "precio_entrada"
+
+                )
+
             )
+
+        )
+
+
+        fecha_compra = posicion.get(
+
+            "fecha_compra",
+
+            estado.get("fecha_inicio")
+
+        )
+
+
+        trades.append({
+
+            "fecha": ahora_utc(),
+
+            "id": f"{ticker}-{ahora_utc()}",
+
+            "activo": ticker,
+
+            "acciones": acciones,
+
+            "precio_compra": precio_compra,
+
+            "precio_venta": precio,
+
+            "motivo_salida": "Close < EMA50",
+
+            "fecha_compra": fecha_compra,
+
+            "dias_operacion": (
+
+                pd.Timestamp(
+
+                    ahora_utc()
+
+                ).date()
+
+                - pd.Timestamp(
+
+                    fecha_compra
+
+                ).date()
+
+            ).days,
+
+            "importe_compra": round(
+
+                acciones * precio_compra,
+
+                2
+
+            ),
+
+            "importe_venta": importe,
+
+            "utilidad": round(
+
+                importe - (
+
+                    acciones * precio_compra
+
+                ),
+
+                2
+
+            ),
+
+            "rendimiento": round(
+
+                (
+
+                    (precio - precio_compra)
+
+                    / precio_compra
+
+                ) * 100,
+
+                2
+
+            ),
+
+            "capital_antes": efectivo_antes,
+
+            "capital_despues": round(
+
+                efectivo,
+
+                2
+
+            )
+
         })
+
             
         guardar_trades(
             trades
