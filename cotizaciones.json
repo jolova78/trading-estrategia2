@@ -1,19 +1,19 @@
 {
-  "actualizado": "2026-08-21T20:00:28.093968+00:00",
+  "actualizado": "2026-08-21T21:42:36.695265+00:00",
   "cotizaciones": {
     "JPM": {
-      "precio": 351.6,
-      "cambio": 0.05,
-      "porcentaje": 0.0142,
+      "precio": 351.58,
+      "cambio": 0.03,
+      "porcentaje": 0.0085,
       "apertura": 354.07,
       "maximo": 356.86,
       "minimo": 350.3666,
       "cierre_anterior": 351.55
     },
     "JNJ": {
-      "precio": 270.34,
-      "cambio": 2.97,
-      "porcentaje": 1.1108,
+      "precio": 270.24,
+      "cambio": 2.87,
+      "porcentaje": 1.0734,
       "apertura": 267.83,
       "maximo": 272.655,
       "minimo": 267,
@@ -47,9 +47,9 @@
       "cierre_anterior": 260.11
     },
     "GOOGL": {
-      "precio": 344.9,
-      "cambio": 4.23,
-      "porcentaje": 1.2417,
+      "precio": 344.82,
+      "cambio": 4.15,
+      "porcentaje": 1.2182,
       "apertura": 342.575,
       "maximo": 346.2,
       "minimo": 340.4,
