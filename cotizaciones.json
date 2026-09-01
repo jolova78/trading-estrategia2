@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-01T20:03:41.260404+00:00",
+  "actualizado": "2026-09-01T22:44:15.325038+00:00",
   "cotizaciones": {
     "JPM": {
       "precio": 354.95,
@@ -29,9 +29,9 @@
       "cierre_anterior": 316.85
     },
     "XOM": {
-      "precio": 164.56,
-      "cambio": 3.61,
-      "porcentaje": 2.2429,
+      "precio": 164.55,
+      "cambio": 3.6,
+      "porcentaje": 2.2367,
       "apertura": 163.6,
       "maximo": 164.7,
       "minimo": 162.215,
