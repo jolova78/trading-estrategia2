@@ -395,11 +395,19 @@
         "fecha_senal": "2026-09-04 04:00:00+00:00",
         "ordenes": []
       }
+    },
+    {
+      "fecha": "2026-09-07T23:31:08.494811+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-09-04 04:00:00+00:00",
+        "ordenes": []
+      }
     }
   ],
   "peso_posicion": 0.2,
   "ultima_senal": "2026-09-04 04:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-09-04T23:03:29.495015+00:00",
+  "ultima_actualizacion_motor": "2026-09-07T23:31:08.494803+00:00",
   "capital_estimado": 9699.29,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
@@ -423,7 +431,7 @@
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-09-04T23:03:29.494512+00:00",
+  "ultima_ejecucion_ordenes": "2026-09-07T23:31:08.494587+00:00",
   "ordenes_generadas": 0,
   "version_motor": "2.1.1"
 }
