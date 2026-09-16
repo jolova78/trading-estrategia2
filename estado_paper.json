@@ -2,7 +2,7 @@
   "version": 1,
   "modo": "PAPER",
   "capital_inicial": 10000.0,
-  "efectivo": 0.0,
+  "efectivo": 1671.42,
   "max_posiciones": 5,
   "fecha_inicio": "2026-07-24",
   "posiciones": [
@@ -29,17 +29,11 @@
       "acciones": 5.433128,
       "precio_compra": 327.34,
       "fecha_compra": "2026-09-02T23:20:13.741885+00:00"
-    },
-    {
-      "activo": "GOOGL",
-      "acciones": 4.821779,
-      "precio_compra": 347.21,
-      "fecha_compra": "2026-09-15T23:32:15.871980+00:00"
     }
   ],
   "ordenes_pendientes": [
     {
-      "activo": "GOOGL",
+      "activo": "JPM",
       "accion": "VENDER",
       "motivo": "Señal de salida",
       "ejecucion": "Próxima apertura"
@@ -498,12 +492,37 @@
           }
         ]
       }
+    },
+    {
+      "fecha": "2026-09-16T23:39:25.497816+00:00",
+      "tipo": "VENTA",
+      "detalle": {
+        "activo": "GOOGL",
+        "acciones": 4.821779,
+        "precio": 346.64,
+        "importe": 1671.42
+      }
+    },
+    {
+      "fecha": "2026-09-16T23:39:25.498183+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-09-16 04:00:00+00:00",
+        "ordenes": [
+          {
+            "activo": "JPM",
+            "accion": "VENDER",
+            "motivo": "Señal de salida",
+            "ejecucion": "Próxima apertura"
+          }
+        ]
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-09-15 04:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-09-15T23:32:15.872745+00:00",
-  "capital_estimado": 9647.6,
+  "ultima_senal": "2026-09-16 04:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-09-16T23:39:25.498174+00:00",
+  "capital_estimado": 9566.0,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -513,20 +532,14 @@
   },
   "ordenes_ejecutadas": [
     {
-      "activo": "NVDA",
+      "activo": "GOOGL",
       "accion": "VENDER",
       "motivo": "Señal de salida",
-      "ejecucion": "Próxima apertura"
-    },
-    {
-      "activo": "GOOGL",
-      "accion": "COMPRAR",
-      "motivo": "Señal de entrada",
       "ejecucion": "Próxima apertura"
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-09-15T23:32:15.872242+00:00",
+  "ultima_ejecucion_ordenes": "2026-09-16T23:39:25.497829+00:00",
   "ordenes_generadas": 1,
   "version_motor": "2.1.1"
 }
