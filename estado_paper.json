@@ -2,16 +2,10 @@
   "version": 1,
   "modo": "PAPER",
   "capital_inicial": 10000.0,
-  "efectivo": 1671.42,
+  "efectivo": 3664.35,
   "max_posiciones": 5,
   "fecha_inicio": "2026-07-24",
   "posiciones": [
-    {
-      "activo": "JPM",
-      "precio_entrada": 353.14,
-      "acciones": 5.6635,
-      "costo_inicial": 2000.0
-    },
     {
       "activo": "JNJ",
       "precio_entrada": 263.415,
@@ -31,14 +25,7 @@
       "fecha_compra": "2026-09-02T23:20:13.741885+00:00"
     }
   ],
-  "ordenes_pendientes": [
-    {
-      "activo": "JPM",
-      "accion": "VENDER",
-      "motivo": "Señal de salida",
-      "ejecucion": "Próxima apertura"
-    }
-  ],
+  "ordenes_pendientes": [],
   "historial": [
     {
       "fecha": "2026-07-27T04:06:47.563953+00:00",
@@ -517,12 +504,30 @@
           }
         ]
       }
+    },
+    {
+      "fecha": "2026-09-17T23:33:43.508880+00:00",
+      "tipo": "VENTA",
+      "detalle": {
+        "activo": "JPM",
+        "acciones": 5.6635,
+        "precio": 351.89,
+        "importe": 1992.93
+      }
+    },
+    {
+      "fecha": "2026-09-17T23:33:43.509246+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-09-17 04:00:00+00:00",
+        "ordenes": []
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-09-16 04:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-09-16T23:39:25.498174+00:00",
-  "capital_estimado": 9566.0,
+  "ultima_senal": "2026-09-17 04:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-09-17T23:33:43.509235+00:00",
+  "capital_estimado": 9628.28,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -532,14 +537,14 @@
   },
   "ordenes_ejecutadas": [
     {
-      "activo": "GOOGL",
+      "activo": "JPM",
       "accion": "VENDER",
       "motivo": "Señal de salida",
       "ejecucion": "Próxima apertura"
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-09-16T23:39:25.497829+00:00",
-  "ordenes_generadas": 1,
+  "ultima_ejecucion_ordenes": "2026-09-17T23:33:43.508902+00:00",
+  "ordenes_generadas": 0,
   "version_motor": "2.1.1"
 }
