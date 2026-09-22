@@ -25,7 +25,20 @@
       "fecha_compra": "2026-09-02T23:20:13.741885+00:00"
     }
   ],
-  "ordenes_pendientes": [],
+  "ordenes_pendientes": [
+    {
+      "activo": "GOOGL",
+      "accion": "COMPRAR",
+      "motivo": "Señal de entrada",
+      "ejecucion": "Próxima apertura"
+    },
+    {
+      "activo": "SPY",
+      "accion": "COMPRAR",
+      "motivo": "Señal de entrada",
+      "ejecucion": "Próxima apertura"
+    }
+  ],
   "historial": [
     {
       "fecha": "2026-07-27T04:06:47.563953+00:00",
@@ -530,12 +543,33 @@
         "fecha_senal": "2026-09-18 04:00:00+00:00",
         "ordenes": []
       }
+    },
+    {
+      "fecha": "2026-09-22T00:08:35.565193+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-09-21 04:00:00+00:00",
+        "ordenes": [
+          {
+            "activo": "GOOGL",
+            "accion": "COMPRAR",
+            "motivo": "Señal de entrada",
+            "ejecucion": "Próxima apertura"
+          },
+          {
+            "activo": "SPY",
+            "accion": "COMPRAR",
+            "motivo": "Señal de entrada",
+            "ejecucion": "Próxima apertura"
+          }
+        ]
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-09-18 04:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-09-18T23:19:27.081526+00:00",
-  "capital_estimado": 9617.66,
+  "ultima_senal": "2026-09-21 04:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-09-22T00:08:35.565182+00:00",
+  "capital_estimado": 9570.22,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -552,7 +586,7 @@
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-09-18T23:19:27.081359+00:00",
-  "ordenes_generadas": 0,
+  "ultima_ejecucion_ordenes": "2026-09-22T00:08:35.564962+00:00",
+  "ordenes_generadas": 2,
   "version_motor": "2.1.1"
 }
