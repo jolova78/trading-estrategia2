@@ -2,7 +2,7 @@
   "version": 1,
   "modo": "PAPER",
   "capital_inicial": 10000.0,
-  "efectivo": 3664.35,
+  "efectivo": 0.0,
   "max_posiciones": 5,
   "fecha_inicio": "2026-07-24",
   "posiciones": [
@@ -23,22 +23,21 @@
       "acciones": 5.433128,
       "precio_compra": 327.34,
       "fecha_compra": "2026-09-02T23:20:13.741885+00:00"
-    }
-  ],
-  "ordenes_pendientes": [
+    },
     {
       "activo": "GOOGL",
-      "accion": "COMPRAR",
-      "motivo": "Señal de entrada",
-      "ejecucion": "Próxima apertura"
+      "acciones": 5.349841,
+      "precio_compra": 358.06,
+      "fecha_compra": "2026-09-22T23:36:25.213557+00:00"
     },
     {
       "activo": "SPY",
-      "accion": "COMPRAR",
-      "motivo": "Señal de entrada",
-      "ejecucion": "Próxima apertura"
+      "acciones": 2.256911,
+      "precio_compra": 774.86,
+      "fecha_compra": "2026-09-22T23:36:25.214389+00:00"
     }
   ],
+  "ordenes_pendientes": [],
   "historial": [
     {
       "fecha": "2026-07-27T04:06:47.563953+00:00",
@@ -564,12 +563,40 @@
           }
         ]
       }
+    },
+    {
+      "fecha": "2026-09-22T23:36:25.213970+00:00",
+      "tipo": "COMPRA",
+      "detalle": {
+        "activo": "GOOGL",
+        "acciones": 5.349841,
+        "precio": 358.06,
+        "importe": 1915.56
+      }
+    },
+    {
+      "fecha": "2026-09-22T23:36:25.214630+00:00",
+      "tipo": "COMPRA",
+      "detalle": {
+        "activo": "SPY",
+        "acciones": 2.256911,
+        "precio": 774.86,
+        "importe": 1748.79
+      }
+    },
+    {
+      "fecha": "2026-09-22T23:36:25.215109+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-09-22 04:00:00+00:00",
+        "ordenes": []
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-09-21 04:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-09-22T00:08:35.565182+00:00",
-  "capital_estimado": 9570.22,
+  "ultima_senal": "2026-09-22 04:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-09-22T23:36:25.215098+00:00",
+  "capital_estimado": 9537.81,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -579,14 +606,20 @@
   },
   "ordenes_ejecutadas": [
     {
-      "activo": "JPM",
-      "accion": "VENDER",
-      "motivo": "Señal de salida",
+      "activo": "GOOGL",
+      "accion": "COMPRAR",
+      "motivo": "Señal de entrada",
+      "ejecucion": "Próxima apertura"
+    },
+    {
+      "activo": "SPY",
+      "accion": "COMPRAR",
+      "motivo": "Señal de entrada",
       "ejecucion": "Próxima apertura"
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-09-22T00:08:35.564962+00:00",
-  "ordenes_generadas": 2,
+  "ultima_ejecucion_ordenes": "2026-09-22T23:36:25.214655+00:00",
+  "ordenes_generadas": 0,
   "version_motor": "2.1.1"
 }
