@@ -1,58 +1,58 @@
 {
-  "actualizado": "2026-09-23T17:44:25.079744+00:00",
+  "actualizado": "2026-09-23T21:11:46.625529+00:00",
   "cotizaciones": {
     "JPM": {
-      "precio": 338.16,
-      "cambio": -1.84,
-      "porcentaje": -0.5412,
-      "apertura": 339.455,
+      "precio": 337.53,
+      "cambio": -2.47,
+      "porcentaje": -0.7265,
+      "apertura": 337.61,
       "maximo": 341.44,
       "minimo": 336.981,
       "cierre_anterior": 340
     },
     "JNJ": {
-      "precio": 267.51,
-      "cambio": -1.68,
-      "porcentaje": -0.6241,
-      "apertura": 269.65,
+      "precio": 269.17,
+      "cambio": -0.02,
+      "porcentaje": -0.0074,
+      "apertura": 269.47,
       "maximo": 272.14,
       "minimo": 266.5,
       "cierre_anterior": 269.19
     },
     "AAPL": {
-      "precio": 337.32,
-      "cambio": -2.43,
-      "porcentaje": -0.7152,
-      "apertura": 340.7525,
+      "precio": 337.02,
+      "cambio": -2.73,
+      "porcentaje": -0.8035,
+      "apertura": 341.075,
       "maximo": 341.8,
-      "minimo": 335.911,
+      "minimo": 335.5,
       "cierre_anterior": 339.75
     },
     "XOM": {
-      "precio": 161.47,
-      "cambio": 2.76,
-      "porcentaje": 1.739,
-      "apertura": 159.15,
+      "precio": 161.23,
+      "cambio": 2.52,
+      "porcentaje": 1.5878,
+      "apertura": 159.62,
       "maximo": 162.1199,
-      "minimo": 159.15,
+      "minimo": 159.4206,
       "cierre_anterior": 158.71
     },
     "AMZN": {
-      "precio": 248.55,
-      "cambio": -6.43,
-      "porcentaje": -2.5218,
-      "apertura": 254.35,
-      "maximo": 254.35,
+      "precio": 249.27,
+      "cambio": -5.71,
+      "porcentaje": -2.2394,
+      "apertura": 253,
+      "maximo": 253.99,
       "minimo": 247.76,
       "cierre_anterior": 254.98
     },
     "GOOGL": {
-      "precio": 338.94,
-      "cambio": -12.22,
-      "porcentaje": -3.4799,
-      "apertura": 351.13,
-      "maximo": 351.13,
-      "minimo": 337.73,
+      "precio": 337.83,
+      "cambio": -13.33,
+      "porcentaje": -3.796,
+      "apertura": 349.86,
+      "maximo": 350,
+      "minimo": 337.45,
       "cierre_anterior": 351.16
     }
   }
