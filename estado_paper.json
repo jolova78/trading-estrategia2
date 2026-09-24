@@ -2,7 +2,7 @@
   "version": 1,
   "modo": "PAPER",
   "capital_inicial": 10000.0,
-  "efectivo": 0.0,
+  "efectivo": 1797.07,
   "max_posiciones": 5,
   "fecha_inicio": "2026-07-24",
   "posiciones": [
@@ -25,26 +25,13 @@
       "fecha_compra": "2026-09-02T23:20:13.741885+00:00"
     },
     {
-      "activo": "GOOGL",
-      "acciones": 5.349841,
-      "precio_compra": 358.06,
-      "fecha_compra": "2026-09-22T23:36:25.213557+00:00"
-    },
-    {
       "activo": "SPY",
       "acciones": 2.256911,
       "precio_compra": 774.86,
       "fecha_compra": "2026-09-22T23:36:25.214389+00:00"
     }
   ],
-  "ordenes_pendientes": [
-    {
-      "activo": "GOOGL",
-      "accion": "VENDER",
-      "motivo": "Señal de salida",
-      "ejecucion": "Próxima apertura"
-    }
-  ],
+  "ordenes_pendientes": [],
   "historial": [
     {
       "fecha": "2026-07-27T04:06:47.563953+00:00",
@@ -613,12 +600,30 @@
           }
         ]
       }
+    },
+    {
+      "fecha": "2026-09-24T23:53:48.670607+00:00",
+      "tipo": "VENTA",
+      "detalle": {
+        "activo": "GOOGL",
+        "acciones": 5.349841,
+        "precio": 335.91,
+        "importe": 1797.07
+      }
+    },
+    {
+      "fecha": "2026-09-24T23:53:48.670935+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-09-24 04:00:00+00:00",
+        "ordenes": []
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-09-23 04:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-09-23T23:43:35.163071+00:00",
-  "capital_estimado": 9469.92,
+  "ultima_senal": "2026-09-24 04:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-09-24T23:53:48.670928+00:00",
+  "capital_estimado": 9475.73,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -629,19 +634,13 @@
   "ordenes_ejecutadas": [
     {
       "activo": "GOOGL",
-      "accion": "COMPRAR",
-      "motivo": "Señal de entrada",
-      "ejecucion": "Próxima apertura"
-    },
-    {
-      "activo": "SPY",
-      "accion": "COMPRAR",
-      "motivo": "Señal de entrada",
+      "accion": "VENDER",
+      "motivo": "Señal de salida",
       "ejecucion": "Próxima apertura"
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-09-23T23:43:35.162881+00:00",
-  "ordenes_generadas": 1,
+  "ultima_ejecucion_ordenes": "2026-09-24T23:53:48.670619+00:00",
+  "ordenes_generadas": 0,
   "version_motor": "2.1.1"
 }
