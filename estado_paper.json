@@ -31,7 +31,14 @@
       "fecha_compra": "2026-09-29T01:00:29.557770+00:00"
     }
   ],
-  "ordenes_pendientes": [],
+  "ordenes_pendientes": [
+    {
+      "activo": "SPY",
+      "accion": "VENDER",
+      "motivo": "Señal de salida",
+      "ejecucion": "Próxima apertura"
+    }
+  ],
   "historial": [
     {
       "fecha": "2026-07-27T04:06:47.563953+00:00",
@@ -805,12 +812,27 @@
         "fecha_senal": "2026-10-15 04:00:00+00:00",
         "ordenes": []
       }
+    },
+    {
+      "fecha": "2026-10-16T23:37:35.945600+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-10-16 04:00:00+00:00",
+        "ordenes": [
+          {
+            "activo": "SPY",
+            "accion": "VENDER",
+            "motivo": "Señal de salida",
+            "ejecucion": "Próxima apertura"
+          }
+        ]
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-10-15 04:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-10-15T23:41:59.012597+00:00",
-  "capital_estimado": 9537.28,
+  "ultima_senal": "2026-10-16 04:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-10-16T23:37:35.945588+00:00",
+  "capital_estimado": 9544.07,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -827,7 +849,7 @@
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-10-15T23:41:59.012067+00:00",
-  "ordenes_generadas": 0,
+  "ultima_ejecucion_ordenes": "2026-10-16T23:37:35.945169+00:00",
+  "ordenes_generadas": 1,
   "version_motor": "2.1.1"
 }
