@@ -2,7 +2,7 @@
   "version": 1,
   "modo": "PAPER",
   "capital_inicial": 10000.0,
-  "efectivo": 1795.42,
+  "efectivo": 3525.43,
   "max_posiciones": 5,
   "fecha_inicio": "2026-07-24",
   "posiciones": [
@@ -19,12 +19,6 @@
       "fecha_compra": "2026-09-02T23:20:13.741885+00:00"
     },
     {
-      "activo": "SPY",
-      "acciones": 2.256911,
-      "precio_compra": 774.86,
-      "fecha_compra": "2026-09-22T23:36:25.214389+00:00"
-    },
-    {
       "activo": "MSFT",
       "acciones": 3.551662,
       "precio_compra": 505.98,
@@ -33,9 +27,9 @@
   ],
   "ordenes_pendientes": [
     {
-      "activo": "SPY",
-      "accion": "VENDER",
-      "motivo": "Señal de salida",
+      "activo": "AMZN",
+      "accion": "COMPRAR",
+      "motivo": "Señal de entrada",
       "ejecucion": "Próxima apertura"
     }
   ],
@@ -827,12 +821,37 @@
           }
         ]
       }
+    },
+    {
+      "fecha": "2026-10-20T00:22:35.327729+00:00",
+      "tipo": "VENTA",
+      "detalle": {
+        "activo": "SPY",
+        "acciones": 2.256911,
+        "precio": 766.54,
+        "importe": 1730.01
+      }
+    },
+    {
+      "fecha": "2026-10-20T00:22:35.328290+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-10-19 04:00:00+00:00",
+        "ordenes": [
+          {
+            "activo": "AMZN",
+            "accion": "COMPRAR",
+            "motivo": "Señal de entrada",
+            "ejecucion": "Próxima apertura"
+          }
+        ]
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-10-16 04:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-10-16T23:37:35.945588+00:00",
-  "capital_estimado": 9544.07,
+  "ultima_senal": "2026-10-19 04:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-10-20T00:22:35.328277+00:00",
+  "capital_estimado": 9555.59,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -842,14 +861,14 @@
   },
   "ordenes_ejecutadas": [
     {
-      "activo": "NVDA",
+      "activo": "SPY",
       "accion": "VENDER",
       "motivo": "Señal de salida",
       "ejecucion": "Próxima apertura"
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-10-16T23:37:35.945169+00:00",
+  "ultima_ejecucion_ordenes": "2026-10-20T00:22:35.327749+00:00",
   "ordenes_generadas": 1,
   "version_motor": "2.1.1"
 }
