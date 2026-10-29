@@ -2,7 +2,7 @@
   "version": 1,
   "modo": "PAPER",
   "capital_inicial": 10000.0,
-  "efectivo": 3409.69,
+  "efectivo": 1511.72,
   "max_posiciones": 5,
   "fecha_inicio": "2026-07-24",
   "posiciones": [
@@ -23,16 +23,15 @@
       "acciones": 3.551662,
       "precio_compra": 505.98,
       "fecha_compra": "2026-09-29T01:00:29.557770+00:00"
-    }
-  ],
-  "ordenes_pendientes": [
+    },
     {
       "activo": "JNJ",
-      "accion": "COMPRAR",
-      "motivo": "Señal de entrada",
-      "ejecucion": "Próxima apertura"
+      "acciones": 7.136285,
+      "precio_compra": 265.96,
+      "fecha_compra": "2026-10-29T00:59:22.640319+00:00"
     }
   ],
+  "ordenes_pendientes": [],
   "historial": [
     {
       "fecha": "2026-07-27T04:06:47.563953+00:00",
@@ -928,12 +927,30 @@
           }
         ]
       }
+    },
+    {
+      "fecha": "2026-10-29T00:59:22.640644+00:00",
+      "tipo": "COMPRA",
+      "detalle": {
+        "activo": "JNJ",
+        "acciones": 7.136285,
+        "precio": 265.96,
+        "importe": 1897.97
+      }
+    },
+    {
+      "fecha": "2026-10-29T00:59:22.640965+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-10-28 04:00:00+00:00",
+        "ordenes": []
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-10-27 04:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-10-28T00:31:58.592756+00:00",
-  "capital_estimado": 9476.0,
+  "ultima_senal": "2026-10-28 04:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-10-29T00:59:22.640956+00:00",
+  "capital_estimado": 9527.86,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -943,14 +960,14 @@
   },
   "ordenes_ejecutadas": [
     {
-      "activo": "AMZN",
-      "accion": "VENDER",
-      "motivo": "Señal de salida",
+      "activo": "JNJ",
+      "accion": "COMPRAR",
+      "motivo": "Señal de entrada",
       "ejecucion": "Próxima apertura"
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-10-28T00:31:58.592511+00:00",
-  "ordenes_generadas": 1,
+  "ultima_ejecucion_ordenes": "2026-10-29T00:59:22.640663+00:00",
+  "ordenes_generadas": 0,
   "version_motor": "2.1.1"
 }
