@@ -2,7 +2,7 @@
   "version": 1,
   "modo": "PAPER",
   "capital_inicial": 10000.0,
-  "efectivo": 1511.72,
+  "efectivo": 0.0,
   "max_posiciones": 5,
   "fecha_inicio": "2026-07-24",
   "posiciones": [
@@ -29,13 +29,19 @@
       "acciones": 7.136285,
       "precio_compra": 265.96,
       "fecha_compra": "2026-10-29T00:59:22.640319+00:00"
+    },
+    {
+      "activo": "JPM",
+      "acciones": 4.397347,
+      "precio_compra": 343.78,
+      "fecha_compra": "2026-10-31T00:48:03.307624+00:00"
     }
   ],
   "ordenes_pendientes": [
     {
       "activo": "JPM",
-      "accion": "COMPRAR",
-      "motivo": "Señal de entrada",
+      "accion": "VENDER",
+      "motivo": "Señal de salida",
       "ejecucion": "Próxima apertura"
     }
   ],
@@ -967,12 +973,37 @@
           }
         ]
       }
+    },
+    {
+      "fecha": "2026-10-31T00:48:03.308005+00:00",
+      "tipo": "COMPRA",
+      "detalle": {
+        "activo": "JPM",
+        "acciones": 4.397347,
+        "precio": 343.78,
+        "importe": 1511.72
+      }
+    },
+    {
+      "fecha": "2026-10-31T00:48:03.308436+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-10-30 04:00:00+00:00",
+        "ordenes": [
+          {
+            "activo": "JPM",
+            "accion": "VENDER",
+            "motivo": "Señal de salida",
+            "ejecucion": "Próxima apertura"
+          }
+        ]
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-10-29 04:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-10-30T01:02:17.204715+00:00",
-  "capital_estimado": 9589.44,
+  "ultima_senal": "2026-10-30 04:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-10-31T00:48:03.308426+00:00",
+  "capital_estimado": 9546.09,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -982,14 +1013,14 @@
   },
   "ordenes_ejecutadas": [
     {
-      "activo": "JNJ",
+      "activo": "JPM",
       "accion": "COMPRAR",
       "motivo": "Señal de entrada",
       "ejecucion": "Próxima apertura"
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-10-30T01:02:17.204403+00:00",
+  "ultima_ejecucion_ordenes": "2026-10-31T00:48:03.308018+00:00",
   "ordenes_generadas": 1,
   "version_motor": "2.1.1"
 }
