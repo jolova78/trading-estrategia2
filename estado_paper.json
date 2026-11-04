@@ -2,7 +2,7 @@
   "version": 1,
   "modo": "PAPER",
   "capital_inicial": 10000.0,
-  "efectivo": 1495.76,
+  "efectivo": 3298.41,
   "max_posiciones": 5,
   "fecha_inicio": "2026-07-24",
   "posiciones": [
@@ -19,12 +19,6 @@
       "fecha_compra": "2026-09-02T23:20:13.741885+00:00"
     },
     {
-      "activo": "MSFT",
-      "acciones": 3.551662,
-      "precio_compra": 505.98,
-      "fecha_compra": "2026-09-29T01:00:29.557770+00:00"
-    },
-    {
       "activo": "JNJ",
       "acciones": 7.136285,
       "precio_compra": 265.96,
@@ -33,7 +27,7 @@
   ],
   "ordenes_pendientes": [
     {
-      "activo": "MSFT",
+      "activo": "AAPL",
       "accion": "VENDER",
       "motivo": "Señal de salida",
       "ejecucion": "Próxima apertura"
@@ -1017,12 +1011,37 @@
           }
         ]
       }
+    },
+    {
+      "fecha": "2026-11-04T01:24:34.734004+00:00",
+      "tipo": "VENTA",
+      "detalle": {
+        "activo": "MSFT",
+        "acciones": 3.551662,
+        "precio": 507.55,
+        "importe": 1802.65
+      }
+    },
+    {
+      "fecha": "2026-11-04T01:24:34.734489+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-11-03 05:00:00+00:00",
+        "ordenes": [
+          {
+            "activo": "AAPL",
+            "accion": "VENDER",
+            "motivo": "Señal de salida",
+            "ejecucion": "Próxima apertura"
+          }
+        ]
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-11-02 05:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-11-03T02:55:54.178097+00:00",
-  "capital_estimado": 9358.6,
+  "ultima_senal": "2026-11-03 05:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-11-04T01:24:34.734477+00:00",
+  "capital_estimado": 9262.25,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -1032,14 +1051,14 @@
   },
   "ordenes_ejecutadas": [
     {
-      "activo": "JPM",
+      "activo": "MSFT",
       "accion": "VENDER",
       "motivo": "Señal de salida",
       "ejecucion": "Próxima apertura"
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-11-03T02:55:54.177590+00:00",
+  "ultima_ejecucion_ordenes": "2026-11-04T01:24:34.734025+00:00",
   "ordenes_generadas": 1,
   "version_motor": "2.1.1"
 }
