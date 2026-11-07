@@ -2,7 +2,7 @@
   "version": 1,
   "modo": "PAPER",
   "capital_inicial": 10000.0,
-  "efectivo": -0.0,
+  "efectivo": 572.41,
   "max_posiciones": 5,
   "fecha_inicio": "2026-07-24",
   "posiciones": [
@@ -29,22 +29,9 @@
       "acciones": 9.721999,
       "precio_compra": 271.94,
       "fecha_compra": "2026-11-06T01:34:15.899095+00:00"
-    },
-    {
-      "activo": "JPM",
-      "acciones": 1.717931,
-      "precio_compra": 358.99,
-      "fecha_compra": "2026-11-06T01:34:15.899695+00:00"
     }
   ],
-  "ordenes_pendientes": [
-    {
-      "activo": "JPM",
-      "accion": "VENDER",
-      "motivo": "Señal de salida",
-      "ejecucion": "Próxima apertura"
-    }
-  ],
+  "ordenes_pendientes": [],
   "historial": [
     {
       "fecha": "2026-07-27T04:06:47.563953+00:00",
@@ -1162,12 +1149,30 @@
           }
         ]
       }
+    },
+    {
+      "fecha": "2026-11-07T00:57:02.007384+00:00",
+      "tipo": "VENTA",
+      "detalle": {
+        "activo": "JPM",
+        "acciones": 1.717931,
+        "precio": 333.2,
+        "importe": 572.41
+      }
+    },
+    {
+      "fecha": "2026-11-07T00:57:02.007642+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-11-06 05:00:00+00:00",
+        "ordenes": []
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-11-05 05:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-11-06T01:34:15.900333+00:00",
-  "capital_estimado": 9000.66,
+  "ultima_senal": "2026-11-06 05:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-11-07T00:57:02.007635+00:00",
+  "capital_estimado": 8975.29,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -1177,38 +1182,14 @@
   },
   "ordenes_ejecutadas": [
     {
-      "activo": "XOM",
+      "activo": "JPM",
       "accion": "VENDER",
       "motivo": "Señal de salida",
-      "ejecucion": "Próxima apertura"
-    },
-    {
-      "activo": "AAPL",
-      "accion": "COMPRAR",
-      "motivo": "Señal de entrada",
-      "ejecucion": "Próxima apertura"
-    },
-    {
-      "activo": "MSFT",
-      "accion": "COMPRAR",
-      "motivo": "Señal de entrada",
-      "ejecucion": "Próxima apertura"
-    },
-    {
-      "activo": "AMZN",
-      "accion": "COMPRAR",
-      "motivo": "Señal de entrada",
-      "ejecucion": "Próxima apertura"
-    },
-    {
-      "activo": "JPM",
-      "accion": "COMPRAR",
-      "motivo": "Señal de entrada",
       "ejecucion": "Próxima apertura"
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-11-06T01:34:15.900085+00:00",
-  "ordenes_generadas": 1,
+  "ultima_ejecucion_ordenes": "2026-11-07T00:57:02.007396+00:00",
+  "ordenes_generadas": 0,
   "version_motor": "2.1.1"
 }
