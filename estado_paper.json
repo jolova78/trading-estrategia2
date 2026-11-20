@@ -25,7 +25,14 @@
       "fecha_compra": "2026-11-06T01:34:15.899095+00:00"
     }
   ],
-  "ordenes_pendientes": [],
+  "ordenes_pendientes": [
+    {
+      "activo": "JNJ",
+      "accion": "VENDER",
+      "motivo": "Señal de salida",
+      "ejecucion": "Próxima apertura"
+    }
+  ],
   "historial": [
     {
       "fecha": "2026-07-27T04:06:47.563953+00:00",
@@ -1242,12 +1249,27 @@
         "fecha_senal": "2026-11-18 05:00:00+00:00",
         "ordenes": []
       }
+    },
+    {
+      "fecha": "2026-11-20T02:20:48.564166+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-11-19 05:00:00+00:00",
+        "ordenes": [
+          {
+            "activo": "JNJ",
+            "accion": "VENDER",
+            "motivo": "Señal de salida",
+            "ejecucion": "Próxima apertura"
+          }
+        ]
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-11-18 05:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-11-19T02:35:36.627532+00:00",
-  "capital_estimado": 8979.08,
+  "ultima_senal": "2026-11-19 05:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-11-20T02:20:48.564154+00:00",
+  "capital_estimado": 8821.86,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -1264,7 +1286,7 @@
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-11-19T02:35:36.627117+00:00",
-  "ordenes_generadas": 0,
+  "ultima_ejecucion_ordenes": "2026-11-20T02:20:48.563847+00:00",
+  "ordenes_generadas": 1,
   "version_motor": "2.1.1"
 }
