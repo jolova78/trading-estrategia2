@@ -1,77 +1,77 @@
 {
-  "actualizado": "2026-11-24T00:36:57.471765+00:00",
+  "actualizado": "2026-11-24T22:55:37.396477+00:00",
   "cotizaciones": {
     "JPM": {
-      "precio": 316.66,
-      "cambio": 6.13,
-      "porcentaje": 1.974,
-      "apertura": 319.19,
-      "maximo": 321.612,
-      "minimo": 315,
-      "cierre_anterior": 310.53
+      "precio": 317.1,
+      "cambio": 0.44,
+      "porcentaje": 0.139,
+      "apertura": 314.78,
+      "maximo": 319.01,
+      "minimo": 313.62,
+      "cierre_anterior": 316.66
     },
     "JNJ": {
-      "precio": 270.05,
-      "cambio": -0.42,
-      "porcentaje": -0.1553,
-      "apertura": 269.85,
-      "maximo": 272.4,
-      "minimo": 267.3601,
-      "cierre_anterior": 270.47
+      "precio": 276.46,
+      "cambio": 6.41,
+      "porcentaje": 2.3736,
+      "apertura": 269.99,
+      "maximo": 276.85,
+      "minimo": 268.08,
+      "cierre_anterior": 270.05
     },
     "AAPL": {
-      "precio": 349.08,
-      "cambio": 6.52,
-      "porcentaje": 1.9033,
-      "apertura": 347.87,
-      "maximo": 352.6,
-      "minimo": 345.442189,
-      "cierre_anterior": 342.56
+      "precio": 354.07,
+      "cambio": 4.99,
+      "porcentaje": 1.4295,
+      "apertura": 348.06,
+      "maximo": 354.4,
+      "minimo": 345.88,
+      "cierre_anterior": 349.08
     },
     "XOM": {
-      "precio": 156.9,
-      "cambio": -3.09,
-      "porcentaje": -1.9314,
-      "apertura": 157.94,
-      "maximo": 159.65,
-      "minimo": 156.67,
-      "cierre_anterior": 159.99
+      "precio": 158.23,
+      "cambio": 1.33,
+      "porcentaje": 0.8477,
+      "apertura": 157.42,
+      "maximo": 159.3232,
+      "minimo": 157.0625,
+      "cierre_anterior": 156.9
     },
     "AMZN": {
-      "precio": 255.39,
-      "cambio": 8.57,
-      "porcentaje": 3.4722,
-      "apertura": 260.26,
-      "maximo": 262.48,
-      "minimo": 251.25,
-      "cierre_anterior": 246.82
+      "precio": 252.29,
+      "cambio": -3.1,
+      "porcentaje": -1.2138,
+      "apertura": 252.29,
+      "maximo": 255.56,
+      "minimo": 250.53,
+      "cierre_anterior": 255.39
     },
     "GOOGL": {
-      "precio": 282.1,
-      "cambio": 16.81,
-      "porcentaje": 6.3365,
-      "apertura": 284.275,
-      "maximo": 285.1354,
-      "minimo": 275.36,
-      "cierre_anterior": 265.29
+      "precio": 279.05,
+      "cambio": -3.05,
+      "porcentaje": -1.0812,
+      "apertura": 281.6,
+      "maximo": 281.78,
+      "minimo": 276.03,
+      "cierre_anterior": 282.1
     },
     "MSFT": {
-      "precio": 492.5,
-      "cambio": 7.98,
-      "porcentaje": 1.647,
-      "apertura": 506.055,
-      "maximo": 509.15,
-      "minimo": 492.02,
-      "cierre_anterior": 484.52
+      "precio": 496.13,
+      "cambio": 3.63,
+      "porcentaje": 0.7371,
+      "apertura": 490.13,
+      "maximo": 501.82,
+      "minimo": 488.43,
+      "cierre_anterior": 492.5
     },
     "SPY": {
-      "precio": 722.29,
-      "cambio": 32.48,
-      "porcentaje": 4.7085,
-      "apertura": 724.33,
-      "maximo": 727.98,
-      "minimo": 713.53,
-      "cierre_anterior": 689.81
+      "precio": 718.78,
+      "cambio": -3.51,
+      "porcentaje": -0.486,
+      "apertura": 715.148,
+      "maximo": 720.93,
+      "minimo": 712.14,
+      "cierre_anterior": 722.29
     }
   }
 }
