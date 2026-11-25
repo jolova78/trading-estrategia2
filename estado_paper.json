@@ -1288,12 +1288,20 @@
         "fecha_senal": "2026-11-23 05:00:00+00:00",
         "ordenes": []
       }
+    },
+    {
+      "fecha": "2026-11-25T04:14:02.681774+00:00",
+      "tipo": "GENERACION_SENALES",
+      "detalle": {
+        "fecha_senal": "2026-11-24 05:00:00+00:00",
+        "ordenes": []
+      }
     }
   ],
   "peso_posicion": 0.2,
-  "ultima_senal": "2026-11-23 05:00:00+00:00",
-  "ultima_actualizacion_motor": "2026-11-24T05:19:56.421489+00:00",
-  "capital_estimado": 8863.88,
+  "ultima_senal": "2026-11-24 05:00:00+00:00",
+  "ultima_actualizacion_motor": "2026-11-25T04:14:02.681767+00:00",
+  "capital_estimado": 8889.23,
   "reglas_motor": {
     "entrada": "Close > EMA200; EMA50 > EMA200; Close > Max20 anterior",
     "salida": "Close < EMA50",
@@ -1310,7 +1318,7 @@
     }
   ],
   "ultima_ejecucion": null,
-  "ultima_ejecucion_ordenes": "2026-11-24T05:19:56.421346+00:00",
+  "ultima_ejecucion_ordenes": "2026-11-25T04:14:02.681694+00:00",
   "ordenes_generadas": 0,
   "version_motor": "2.1.1"
 }
